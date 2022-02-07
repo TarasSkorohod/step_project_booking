@@ -34,4 +34,19 @@ public class CollectionBookingDAO implements BookingDAO {
     }
   }
 
+  @Override
+  public boolean deleteBooking(int index) {
+    boolean result = false;
+    if (index >= 0 && index < bookingsList.size()){
+      bookingsList.remove(index);
+      result = true;
+    }
+    return true;
+  }
+
+  @Override
+  public boolean deleteBooking(Booking booking) {
+    return bookingsList.remove(booking);
+  }
+
 }

@@ -7,6 +7,9 @@ public interface BookingDAO  {
   List<Booking> getAllBookings();
   Booking getBookingByIndex(int index);
   void saveBooking(Booking booking);
+  boolean deleteBooking(int index);
+  boolean deleteBooking(Booking booking);
+
 
 
 }

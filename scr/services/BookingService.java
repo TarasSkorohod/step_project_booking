@@ -17,4 +17,9 @@ public class BookingService {
     return bookingDAO.getAllBookings();
   }
 
+  public void saveBooking(Booking booking) {bookingDAO.saveBooking(booking);}
+
+  public void displayAllBookings() {
+    bookingDAO.getAllBookings().forEach(System.out::println);
+  }
 }
