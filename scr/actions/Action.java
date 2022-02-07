@@ -1,6 +1,8 @@
 package actions;
 
 import controllers.FlightController;
+import objects.Flight;
+
 
 import java.util.Scanner;
 
@@ -23,9 +25,20 @@ public class Action {
             System.out.println("----------------------");
 
 
+
+
             switch(scan){
                 case "1":
+                    System.out.println("====Рейсы Киева====");
                     FlightController.displayAllFlight();
+                    break;
+                case "2":
+                    System.out.println("====Рейсы Киева====");
+                    FlightController.displayAllFlight();
+                    System.out.print("Введите номер рейса: ");
+                    int indexFlight = in.nextInt();
+                    Flight flight = FlightController.getFlightByIndex(indexFlight);
+                    flight.prettyFormat();
                     break;
                 case "3":
                     System.out.print("Место назначения: ");

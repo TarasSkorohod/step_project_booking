@@ -1,5 +1,6 @@
 package controllers;
 
+import objects.Flight;
 import services.FlightService;
 
 public class FlightController {
@@ -11,8 +12,8 @@ public class FlightController {
     FlightService.displayAllFlight();
   }
 
-  public static void getFlightByIndex(int index) {
-    FlightService.getFlightByIndex(index);
+  public static Flight getFlightByIndex(int index) {
+    return FlightService.getFlightByIndex(index);
   }
 
   public static void createNewFlight(String destination, int day, int month, int year, int countPeople) {
