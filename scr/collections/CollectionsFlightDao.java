@@ -35,4 +35,9 @@ public final class CollectionsFlightDao implements ActionDAO {
         return null;
       }
   }
+
+  @Override
+  public boolean deleteFlight(int index) {
+    return false;
+  }
 }

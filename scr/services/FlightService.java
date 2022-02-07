@@ -36,6 +36,8 @@ public class FlightService{
       Flight freeFlight = actionDAO.getFlightByIndex(i);
       if (Objects.equals(freeFlight.getDestination(), destination) && freeFlight.getCountPeople() >= countPeople) {
         freeFlight.prettyFormat();
+
+        deleteFlightByIndex(i);
       }
     }
   }
@@ -54,5 +56,9 @@ public class FlightService{
 
       FlightController.createNewFlight(destination, day, month, year, countPeople);
     }
+  }
+
+  public static void deleteFlightByIndex(int index) {
+    actionDAO.deleteFlight(index);
   }
 }

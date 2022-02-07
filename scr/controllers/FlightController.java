@@ -23,4 +23,8 @@ public class FlightController {
   public static void generateFlight() {
     FlightService.generateFlight();
   }
+
+  public static void deleteFlightByIndex(int i) {
+    FlightController.deleteFlightByIndex(i);
+  }
 }
