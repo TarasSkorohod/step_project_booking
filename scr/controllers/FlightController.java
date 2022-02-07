@@ -19,4 +19,8 @@ public class FlightController {
   public static void createNewFlight(String destination, int day, int month, int year, int countPeople) {
     FlightService.createNewFlight(destination, day, month, year, countPeople);
   }
+
+  public static void generateFlight() {
+    FlightService.generateFlight();
+  }
 }

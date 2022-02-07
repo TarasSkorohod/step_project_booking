@@ -2,6 +2,7 @@ package collections;
 
 import DAO.ActionDAO;
 import objects.Flight;
+import utils.GenerateRandomNumbers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,15 +21,11 @@ public final class CollectionsFlightDao implements ActionDAO {
     for (Flight item : flights) {
       if (item.equals(flight)) {
         flights.set(index, flight);
-        System.out.println("----------------------");
-        System.out.println("Один рейс был обновлён");
         return;
       }
       index++;
     }
     flights.add(flight);
-    System.out.println("----------------------");
-    System.out.println("Один рейс был добавлен");
   }
 
   @Override
