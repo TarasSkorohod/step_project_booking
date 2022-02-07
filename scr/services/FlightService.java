@@ -2,12 +2,9 @@ package services;
 
 import DAO.ActionDAO;
 
-class FlightService {
-  private ActionDAO actionDAO;
+public class FlightService{
 
-
-
-  void getAllFlightWithEnterData() {
-    System.out.println("get all flight");
+  public static void getAllFlightWithEnterData() {
+    System.out.println("Hello world!");
   }
 }
