@@ -6,25 +6,23 @@ public class Flight {
   int countPeople;
   Human human;
 
-  Flight () {
+  public Flight () {
     this.destination = "";
     this.Date = "";
     this.countPeople = 0;
   }
 
-  Flight (String destination, int day, int month, int year, int countPeople) {
+  public Flight(String destination, int day, int month, int year, int countPeople) {
     this.destination = destination;
     this.Date = day + "/" + month + "/" + year;
     this.countPeople = countPeople;
   }
 
-  @Override
-  public String toString() {
-    String infoFlight =
+  public void prettyFormat() {
+    System.out.println(
+      "---------------\n" +
       "Destination: " + destination + ", \n" +
       "Date: " + Date + ", \n" +
-      "Count People: " + countPeople;
-
-    return infoFlight;
+      "Count People: " + countPeople);
   }
 }
