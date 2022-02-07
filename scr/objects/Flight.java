@@ -4,7 +4,8 @@ public class Flight {
   String destination;
   String Date;
   int countPeople;
-  Human human;
+  Passenger passenger;
+  int maxPeople = 100;
 
   public Flight () {
     this.destination = "";
@@ -18,11 +19,23 @@ public class Flight {
     this.countPeople = countPeople;
   }
 
+  public String getDestination() {
+    return destination;
+  }
+
+  public String getDate() {
+    return Date;
+  }
+
+  public int getCountPeople() {
+    return countPeople;
+  }
+
   public void prettyFormat() {
     System.out.println(
-      "---------------\n" +
+      "======================\n" +
       "Destination: " + destination + ", \n" +
       "Date: " + Date + ", \n" +
-      "Count People: " + countPeople);
+      "Count People: free " + countPeople + " out of " + maxPeople + " \n");
   }
 }

@@ -2,7 +2,6 @@ package collections;
 
 import DAO.ActionDAO;
 import objects.Flight;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,12 +19,25 @@ public final class CollectionsFlightDao implements ActionDAO {
     for (Flight item : flights) {
       if (item.equals(flight)) {
         flights.set(index, flight);
-        System.out.println("One flight was updated");
         return;
       }
       index++;
     }
     flights.add(flight);
-    System.out.println("One flight was added");
+  }
+
+  @Override
+  public Flight getFlightByIndex(int index) {
+      try {
+        return flights.get(index);
+      } catch (Exception e) {
+        System.out.println("No flight found " + e.getMessage());
+        return null;
+      }
+  }
+
+  @Override
+  public boolean deleteFlight(int index) {
+    return false;
   }
 }

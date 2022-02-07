@@ -13,11 +13,19 @@ public class FlightController {
     FlightService.displayAllFlight();
   }
 
-  public static void getFlightByIndex(int index) {
-    FlightService.getFlightByIndex(index);
+  public static Flight getFlightByIndex(int index) {
+    return FlightService.getFlightByIndex(index);
   }
 
-  public static Flight createNewFlight(String destination, int day, int month, int year, int countPeople) {
-    return FlightService.createNewFlight(destination, day, month, year, countPeople);
+  public static void createNewFlight(String destination, int day, int month, int year, int countPeople) {
+    FlightService.createNewFlight(destination, day, month, year, countPeople);
+  }
+
+  public static void generateFlight() {
+    FlightService.generateFlight();
+  }
+
+  public static void deleteFlightByIndex(int i) {
+    FlightController.deleteFlightByIndex(i);
   }
 }
