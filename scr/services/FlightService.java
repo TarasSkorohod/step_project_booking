@@ -7,6 +7,7 @@ import objects.Flight;
 import utils.GenerateRandomNumbers;
 
 import java.util.List;
+import java.util.Objects;
 
 public class FlightService{
   private static final ActionDAO actionDAO = new CollectionsFlightDao();
@@ -24,8 +25,19 @@ public class FlightService{
 
   public static Flight createNewFlight(String destination, int day, int month, int year, int countPeople) {
     Flight flight = new Flight(destination, day, month, year, countPeople);
+    String date = day + "/" + month + "/" + year;
+    searchFreeFlight(destination, date, countPeople);
     actionDAO.saveFlight(flight);
     return flight;
+  }
+
+  public static void searchFreeFlight(String destination, String date, int countPeople) {
+    for (int i = 0; i < actionDAO.getAllFlight().size(); i++) {
+      Flight freeFlight = actionDAO.getFlightByIndex(i);
+      if (Objects.equals(freeFlight.getDestination(), destination) && freeFlight.getCountPeople() >= countPeople) {
+        freeFlight.prettyFormat();
+      }
+    }
   }
 
   public static Flight getFlightByIndex(int index) {
@@ -34,10 +46,10 @@ public class FlightService{
 
   public static void generateFlight() {
     for (int i = 0; i < GenerateRandomNumbers.getRandomNumberForCountFlight(); i++) {
-      String destination = "City #" + i;
+      String destination = GenerateRandomNumbers.getRandomCountry();
       int day = GenerateRandomNumbers.getRandomNumberForDay();
       int month = GenerateRandomNumbers.getRandomNumberForMonth();
-      int year = GenerateRandomNumbers.getRandomNumberForYear();
+      int year = 2022;
       int countPeople = GenerateRandomNumbers.getRandomNumberForCountPeople();
 
       FlightController.createNewFlight(destination, day, month, year, countPeople);

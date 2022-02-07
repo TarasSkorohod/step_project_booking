@@ -2,8 +2,6 @@ package collections;
 
 import DAO.ActionDAO;
 import objects.Flight;
-import utils.GenerateRandomNumbers;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +31,7 @@ public final class CollectionsFlightDao implements ActionDAO {
       try {
         return flights.get(index);
       } catch (Exception e) {
-        System.out.println("No family found " + e.getMessage());
+        System.out.println("No flight found " + e.getMessage());
         return null;
       }
   }
