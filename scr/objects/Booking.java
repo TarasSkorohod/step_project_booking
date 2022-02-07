@@ -10,33 +10,38 @@ import java.util.List;
 import static utils.ConfigDate.DATE_TIME_FORMAT;
 
 public class Booking implements Serializable {
+
+
   private long number;
   private final LocalDateTime dateTime = LocalDateTime.now();
   private List<Passenger> passengers = new ArrayList();
   private Flight flight;
 
-  public Booking(long number, Flight flight) {
-    this.number = number;
+  public Booking(Flight flight) {
+
+    this.number = setBookingNumber();
     this.flight = flight;
   }
 
-  public Booking(long number, List<Passenger> passengers,Flight flight) {
-    this.number = number;
-    this.passengers = passengers;
+  public Booking(Flight flight, List<Passenger> passengers) {
+    this.number = setBookingNumber();
     this.flight = flight;
+    this.setPassengers(passengers);
   }
 
   public long getBookingNumber() {
     return this.number;
   }
 
-  public long setBookingNumber(long number) {
+  private long setBookingNumber() {
+
     return dateTime.getYear() * 10000000000L +
       dateTime.getMonth().getValue() * 100000000 +
       dateTime.getDayOfMonth() * 1000000 +
       dateTime.getHour() * 10000 +
       dateTime.getMinute() * 100 +
       dateTime.getSecond();
+
   }
 
   public LocalDateTime getDateTime() {
@@ -65,7 +70,7 @@ public class Booking implements Serializable {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Booking booking = (Booking) o;
-    return number == number;
+    return number == booking.number;
   }
 
   @Override
@@ -88,5 +93,4 @@ public class Booking implements Serializable {
       ", passengers=" + passengers +
       '}';
   }
-
 }

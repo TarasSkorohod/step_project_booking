@@ -1,7 +1,7 @@
 package services;
 
 import DAO.BookingDAO;
-import DAO.CollectionBookingDAO;
+import collections.CollectionBookingDAO;
 import objects.Booking;
 
 import java.util.List;

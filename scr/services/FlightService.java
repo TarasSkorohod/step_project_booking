@@ -7,13 +7,13 @@ import objects.Flight;
 import java.util.List;
 
 public class FlightService{
-  private ActionDAO actionDAO;
+  private static ActionDAO actionDAO;
 
   FlightService() {
     this.actionDAO = new CollectionsFlightDao();
   }
 
-  List<Flight> getAllFlight() {
+  public static List<Flight> getAllFlight() {
     return actionDAO.getAllFlight();
   }
 

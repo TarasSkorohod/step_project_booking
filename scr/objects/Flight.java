@@ -4,7 +4,7 @@ public class Flight {
   String destination;
   String Date;
   int countPeople;
-  Human human;
+  Passenger passenger;
 
   public Flight () {
     this.destination = "";
