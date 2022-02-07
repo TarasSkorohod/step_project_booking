@@ -7,6 +7,8 @@ public class Flight {
   private String Date;
   private String flightNumber;
   int countPeople;
+  Passenger passenger;
+  int maxPeople = 100;
   private List<Passenger> passengers;
   private int maxNumSeats;
 
@@ -24,12 +26,24 @@ public class Flight {
     this.countPeople = countPeople;
   }
 
+  public String getDestination() {
+    return destination;
+  }
+
+  public String getDate() {
+    return Date;
+  }
+
+  public int getCountPeople() {
+    return countPeople;
+  }
+
   public void prettyFormat() {
     System.out.println(
       "======================\n" +
       "Destination: " + destination + ", \n" +
       "Date: " + Date + ", \n" +
-      "Count People: " + countPeople + "\n");
+      "Count People: free " + countPeople + " out of " + maxPeople + " \n");
   }
 
   public boolean addPassenger(Passenger passenger) {
