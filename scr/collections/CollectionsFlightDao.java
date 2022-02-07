@@ -20,12 +20,24 @@ public final class CollectionsFlightDao implements ActionDAO {
     for (Flight item : flights) {
       if (item.equals(flight)) {
         flights.set(index, flight);
-        System.out.println("One flight was updated");
+        System.out.println("----------------------");
+        System.out.println("Один рейс был обновлён");
         return;
       }
       index++;
     }
     flights.add(flight);
-    System.out.println("One flight was added");
+    System.out.println("----------------------");
+    System.out.println("Один рейс был добавлен");
+  }
+
+  @Override
+  public Flight getFlightByIndex(int index) {
+      try {
+        return flights.get(index);
+      } catch (Exception e) {
+        System.out.println("No family found " + e.getMessage());
+        return null;
+      }
   }
 }

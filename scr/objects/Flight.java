@@ -20,9 +20,9 @@ public class Flight {
 
   public void prettyFormat() {
     System.out.println(
-      "---------------\n" +
+      "======================\n" +
       "Destination: " + destination + ", \n" +
       "Date: " + Date + ", \n" +
-      "Count People: " + countPeople);
+      "Count People: " + countPeople + "\n");
   }
 }

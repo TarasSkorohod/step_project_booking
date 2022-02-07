@@ -7,11 +7,7 @@ import objects.Flight;
 import java.util.List;
 
 public class FlightService{
-  private static ActionDAO actionDAO;
-
-  FlightService() {
-    actionDAO = new CollectionsFlightDao();
-  }
+  private static final ActionDAO actionDAO = new CollectionsFlightDao();
 
   public static List<Flight> getAllFlight() {
     return actionDAO.getAllFlight();
@@ -20,6 +16,7 @@ public class FlightService{
   public static void displayAllFlight() {
 //    if (getAllFlight().size() != 0) {
       for (int i = 0; i < getAllFlight().size(); i++) {
+        System.out.println("======================");
         System.out.println("Index flight - " + i);
         getAllFlight().get(i).prettyFormat();
       }
