@@ -3,7 +3,7 @@ package actions;
 import java.util.Scanner;
 
 public class Action {
-    public static void main(String[] args) {
+    public static void action() {
         System.out.println("1.Онлайн-табло");
         System.out.println("2.Посмотреть информацию о рейсе");
         System.out.println("3.Поиск и бронировка рейса");

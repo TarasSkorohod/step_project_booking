@@ -15,12 +15,9 @@ public class Human {
     this.lastName = lastName;
   }
 
-  @Override
-  public String toString() {
-    String infoHuman =
+  public void prettyFormat() {
+    System.out.println("---------------\n" +
       "First Name: " + firstName + ", \n" +
-      "Last Name: " + lastName;
-
-    return infoHuman;
+      "Last Name: " + lastName + ", \n");
   }
 }
