@@ -1,4 +1,4 @@
-package booking;
+package objects;
 
 import controllers.BookingController;
 

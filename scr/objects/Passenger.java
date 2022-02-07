@@ -1,8 +1,6 @@
-package booking;
+package objects;
 
 import java.io.Serializable;
-import java.util.Objects;
-import java.util.StringJoiner;
 
 import static utils.ConfigDate.DATE_FORMAT;
 import static utils.FormatDate.dateToStr;

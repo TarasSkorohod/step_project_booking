@@ -1,4 +1,4 @@
-package booking;
+package objects;
 
 public enum Gender {
   MAN("Man", "Mr"),
