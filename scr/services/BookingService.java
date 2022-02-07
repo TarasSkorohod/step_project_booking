@@ -7,19 +7,41 @@ import objects.Booking;
 import java.util.List;
 
 public class BookingService {
-  private BookingDAO bookingDAO = new CollectionBookingDAO();
+  private BookingDAO bookingDao = new CollectionBookingDAO();
 
-  public BookingDAO getBookingDAO() {
-    return bookingDAO;
+  public BookingDAO getBookingDao() {
+    return bookingDao;
   }
 
   public List<Booking> getAllBookings() {
-    return bookingDAO.getAllBookings();
+    return bookingDao.getAllBookings();
   }
-
-  public void saveBooking(Booking booking) {bookingDAO.saveBooking(booking);}
 
   public void displayAllBookings() {
-    bookingDAO.getAllBookings().forEach(System.out::println);
+
+    bookingDao.getAllBookings().forEach(System.out::println);
+
   }
+
+  public void saveBooking(Booking booking) {
+
+    bookingDao.saveBooking(booking);
+
+  }
+
+  public void saveDB(String filePath) {
+
+    bookingDao.saveDB(filePath);
+
+  }
+
+  public void readDB(String filePath) {
+    bookingDao.readDB(filePath);
+  }
+  public void deleteBookingByIndex(int index) {
+
+    bookingDao.deleteBooking(index);
+
+  }
+
 }

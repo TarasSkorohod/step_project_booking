@@ -7,7 +7,7 @@ import objects.Flight;
 import java.util.Scanner;
 
 public class Action {
-    public static void action() {
+    public static   void action() {
         Scanner in = new Scanner(System.in);
         String scan;
 

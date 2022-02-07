@@ -13,10 +13,11 @@ public class FlightController {
   }
 
   public static Flight getFlightByIndex(int index) {
-    return FlightService.getFlightByIndex(index);
+    FlightService.getFlightByIndex(index);
+    return null;
   }
 
-  public static void createNewFlight(String destination, int day, int month, int year, int countPeople) {
-    FlightService.createNewFlight(destination, day, month, year, countPeople);
+  public static Flight createNewFlight(String destination, int day, int month, int year, int countPeople) {
+    return FlightService.createNewFlight(destination, day, month, year, countPeople);
   }
 }

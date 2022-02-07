@@ -3,6 +3,10 @@ package collections;
 import DAO.BookingDAO;
 import objects.Booking;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.List;
 
 public class CollectionBookingDAO implements BookingDAO {
@@ -47,6 +51,51 @@ public class CollectionBookingDAO implements BookingDAO {
   @Override
   public boolean deleteBooking(Booking booking) {
     return bookingsList.remove(booking);
+  }
+
+  @Override
+  public void saveDB(String path) {
+    try{
+      File af = new File(path);
+      FileOutputStream fileOutput = new FileOutputStream(af.getAbsoluteFile());
+      ObjectOutputStream streamOutput = new ObjectOutputStream(fileOutput);
+
+      streamOutput.writeObject(bookingsList);
+      streamOutput.close();
+      fileOutput.close();
+    }catch (IOException e){
+      e.getStackTrace();
+    }
+  }
+
+  @Override
+  public void readDB(String path) {
+
+    List<Booking> listBooking = null;
+
+    File file = new File(path);
+    FileOutputStream fi = null;
+    ObjectOutputStream oi = null;
+
+    try{
+      fi = new FileOutputStream(file.getAbsoluteFile());
+      oi = new ObjectOutputStream(fi);
+
+      listBooking = (List<Booking>) oi.readObject();
+
+      oi.close();
+      fi.close();
+      loadToDB(listBooking);
+    }catch (ClassNotFoundException | IOException e){
+      e.getStackTrace();
+    }
+  }
+
+  @Override
+  public void loadToDB(List<Booking> bookingList) {
+    if (bookingsList != null){
+      bookingsList.forEach(this::saveBooking);
+    }
   }
 
 }

@@ -64,6 +64,37 @@ public class Booking implements Serializable {
     this.flight = flight;
   }
 
+  public boolean addPassenger(Passenger passenger){
+    if (!passengers.contains(passenger)&&
+      passenger != null){
+      passengers.add(passenger);
+      return true;
+    }else {return false;}
+  }
+
+  public boolean deletePassenger (Passenger passenger){
+    if (!passengers.contains(passenger)) {return false;}
+
+    passengers.remove(passenger);
+    return true;
+  }
+
+  public boolean deletePassenger(int index) {
+    if (index >= 0 && index < passengers.size()) {
+      if (!passengers.contains(passengers.get(index))) return false;
+
+      passengers.remove(passengers.get(index));
+      return true;
+    }
+    return false;
+  }
+
+  public Passenger createPassenger(String firstname, String lastname, long birthdate, Gender gender) {
+    Passenger result = new Passenger(firstname, lastname, birthdate, gender);
+    addPassenger(result);
+
+    return result;
+  }
 
   @Override
   public boolean equals(Object o) {
