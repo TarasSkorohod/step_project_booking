@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class Action {
     public static   void action() {
+        FlightController.generateFlight();
         Scanner in = new Scanner(System.in);
         String scan;
 
@@ -24,16 +25,13 @@ public class Action {
             scan = in.next();
             System.out.println("----------------------");
 
-
-
-
             switch(scan){
                 case "1":
-                    System.out.println("====Рейсы Киева====");
+                    System.out.println("Рейсы Киева");
                     FlightController.displayAllFlight();
                     break;
                 case "2":
-                    System.out.println("====Рейсы Киева====");
+                    System.out.println("Рейсы Киева");
                     FlightController.displayAllFlight();
                     System.out.print("Введите номер рейса: ");
                     int indexFlight = in.nextInt();

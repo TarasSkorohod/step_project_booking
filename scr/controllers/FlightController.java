@@ -20,4 +20,8 @@ public class FlightController {
   public static Flight createNewFlight(String destination, int day, int month, int year, int countPeople) {
     return FlightService.createNewFlight(destination, day, month, year, countPeople);
   }
+
+  public static void generateFlight() {
+    FlightService.generateFlight();
+  }
 }
