@@ -1,5 +1,6 @@
 package actions;
 
+import controllers.BookingController;
 import controllers.FlightController;
 import objects.Flight;
 
@@ -40,7 +41,7 @@ public class Action {
                     break;
                 case "3":
                     System.out.print("Место назначения: ");
-                    String place = in.next();
+                    String place = in.nextLine();
                     System.out.print("День: ");
                     int day = in.nextInt();
                     System.out.print("месяц: ");

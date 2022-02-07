@@ -1,10 +1,16 @@
 package objects;
 
+import java.util.List;
+
 public class Flight {
-  String destination;
-  String Date;
+  private String destination;
+  private String Date;
+  private String flightNumber;
   int countPeople;
-  Passenger passenger;
+  private List<Passenger> passengers;
+  private int maxNumSeats;
+
+
 
   public Flight () {
     this.destination = "";
@@ -24,5 +30,17 @@ public class Flight {
       "Destination: " + destination + ", \n" +
       "Date: " + Date + ", \n" +
       "Count People: " + countPeople + "\n");
+  }
+
+  public boolean addPassenger(Passenger passenger) {
+
+    if (!passengers.contains(passenger) &&
+      passengers.size() < maxNumSeats &&
+      passenger != null) {
+
+      passengers.add(passenger);
+      return true;
+
+    } else return false;
   }
 }
