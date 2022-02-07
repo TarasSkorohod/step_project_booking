@@ -81,12 +81,11 @@ public class CollectionBookingDAO implements BookingDAO {
       fi = new FileOutputStream(file.getAbsoluteFile());
       oi = new ObjectOutputStream(fi);
 
-      listBooking = (List<Booking>) oi.readObject();
 
       oi.close();
       fi.close();
       loadToDB(listBooking);
-    }catch (ClassNotFoundException | IOException e){
+    }catch (IOException e){
       e.getStackTrace();
     }
   }
