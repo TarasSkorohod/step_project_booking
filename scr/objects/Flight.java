@@ -28,6 +28,15 @@ public class Flight {
     this.countPeople = countPeople;
   }
 
+  public Flight(String destination, int day, int month, int year, int countPeople, Passenger passenger) {
+    this.destination = destination;
+    this.day = day;
+    this.month = month;
+    this.year = year;
+    this.countPeople = countPeople;
+    this.passenger = passenger;
+  }
+
   public String getDestination() {
     return destination;
   }
@@ -53,10 +62,17 @@ public class Flight {
   }
 
   public void prettyFormat() {
+    String pass;
+    if (passenger == null) {
+      pass = "0 count";
+    } else {
+      pass = passenger.toString();
+    }
     System.out.println(
       "======================\n" +
       "Destination: " + destination + ", \n" +
       "Date: " + getDate() + ", \n" +
-      "Count People: free " + vacantSeats + " out of " + maxPeople + " \n");
+      "Count People: free " + vacantSeats + " out of " + maxPeople + " \n" +
+      "Passenger: " + pass);
   }
 }

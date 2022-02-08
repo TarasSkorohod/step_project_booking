@@ -3,6 +3,7 @@ package services;
 import DAO.ActionDAO;
 import collections.CollectionsFlightDao;
 import objects.Flight;
+import objects.Passenger;
 import utils.GenerateRandomNumbers;
 
 import java.util.List;
@@ -39,6 +40,9 @@ public class FlightService{
       if (Objects.equals(freeFlight.getDestination(), destination) && freeFlight.getVacantSeats() >= countPeople) {
         displayingAvailableFlights(freeFlight, i);
         flightBooking(countPeople, scan);
+        Passenger passenger = passengerBooking(scan, countPeople);
+        Flight flight = new Flight(destination, day, month, year, countPeople, passenger);
+        flight.prettyFormat();
 //        BookingController.saveBooking(flightByIndex);
 //        deleteFlightByIndex(i);
       }
@@ -62,8 +66,26 @@ public class FlightService{
 
     flightByIndex.setVacantSeats(finishCountSeats);
     flightByIndex.prettyFormat();
+  }
 
+  //бронирование пассажиров
+  private static Passenger passengerBooking(Scanner scan, int count) {
+    Passenger result = null;
 
+    for (int index = 0; index < count; index++) {
+      System.out.printf("<< Пассажир № %s >>\n", index);
+      System.out.print("Введите имя: ");
+      String firstName = scan.next();
+
+      System.out.print("Введите фамилию: ");
+      String lastName = scan.next();
+
+      Passenger passenger = new Passenger(firstName, lastName);
+      System.out.printf("Пассажир № %s - добавлен\n", index);
+      result = passenger;
+    }
+
+    return result;
   }
 
   public static Flight getFlightByIndex(int index) {

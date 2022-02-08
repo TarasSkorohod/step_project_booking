@@ -4,10 +4,9 @@ import objects.Flight;
 import services.FlightService;
 
 public class FlightController {
-  public static void getAllFlight() {
-
+//  public static void getAllFlight() {
 //    FlightService.getAllFlight();
-  }
+//  }
 
   public static void displayAllFlight() {
     FlightService.displayAllFlight();
