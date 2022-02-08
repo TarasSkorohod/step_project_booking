@@ -1,29 +1,40 @@
 package objects;
 
-import java.util.List;
-
 public class Flight {
-  private String destination;
-  private String Date;
-  private String flightNumber;
-  int countPeople;
+  String destination; //место назначения
+  int day;
+  int month;
+  int year;
+  int countPeople; //Количество людей
+  int vacantSeats; //Свободные места
   Passenger passenger;
-  int maxPeople = 100;
-  private List<Passenger> passengers;
-  private int maxNumSeats;
-
-
+  int maxPeople = 100; //максимальное количество свободых мест
 
   public Flight () {
     this.destination = "";
-    this.Date = "";
+    this.day = 0;
+    this.month = 0;
+    this.year = 0;
     this.countPeople = 0;
+    this.vacantSeats = 0;
+    this.passenger = null;
   }
 
   public Flight(String destination, int day, int month, int year, int countPeople) {
     this.destination = destination;
-    this.Date = day + "/" + month + "/" + year;
+    this.day = day;
+    this.month = month;
+    this.year = year;
     this.countPeople = countPeople;
+  }
+
+  public Flight(String destination, int day, int month, int year, int countPeople, Passenger passenger) {
+    this.destination = destination;
+    this.day = day;
+    this.month = month;
+    this.year = year;
+    this.countPeople = countPeople;
+    this.passenger = passenger;
   }
 
   public String getDestination() {
@@ -31,30 +42,37 @@ public class Flight {
   }
 
   public String getDate() {
-    return Date;
+    return day + "/" + month + "/" + year;
   }
 
   public int getCountPeople() {
     return countPeople;
   }
 
+//  public void setCountPeople(int count) {
+//    this.countPeople = count;
+//  }
+
+  public void setVacantSeats(int count) {
+    this.vacantSeats = count;
+  }
+
+  public int getVacantSeats() {
+    return vacantSeats;
+  }
+
   public void prettyFormat() {
+    String pass;
+    if (passenger == null) {
+      pass = "0 count";
+    } else {
+      pass = passenger.toString();
+    }
     System.out.println(
       "======================\n" +
       "Destination: " + destination + ", \n" +
-      "Date: " + Date + ", \n" +
-      "Count People: free " + countPeople + " out of " + maxPeople + " \n");
-  }
-
-  public boolean addPassenger(Passenger passenger) {
-
-    if (!passengers.contains(passenger) &&
-      passengers.size() < maxNumSeats &&
-      passenger != null) {
-
-      passengers.add(passenger);
-      return true;
-
-    } else return false;
+      "Date: " + getDate() + ", \n" +
+      "Count People: free " + vacantSeats + " out of " + maxPeople + " \n" +
+      "Passenger: " + pass);
   }
 }

@@ -2,11 +2,14 @@ package collections;
 
 import DAO.ActionDAO;
 import objects.Flight;
+import objects.Passenger;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public final class CollectionsFlightDao implements ActionDAO {
   List<Flight> flights = new ArrayList<>(0);
+
 
   @Override
   public List<Flight> getAllFlight() {
@@ -38,6 +41,11 @@ public final class CollectionsFlightDao implements ActionDAO {
 
   @Override
   public boolean deleteFlight(int index) {
-    return false;
+    boolean result = false;
+    if (index >= 0 && index < flights.size()){
+      flights.remove(index);
+      result = true;
+    }
+    return result;
   }
 }
