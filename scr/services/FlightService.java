@@ -2,9 +2,11 @@ package services;
 
 import DAO.ActionDAO;
 import collections.CollectionsFlightDao;
+import controllers.BookingController;
 import objects.Flight;
 import objects.Passenger;
 import utils.GenerateRandomNumbers;
+
 
 import java.util.List;
 import java.util.Objects;
@@ -106,6 +108,19 @@ public class FlightService{
 
   public static boolean deleteFlightByIndex(int index) {
     return actionDAO.deleteFlight(index);
+  }
+
+
+
+
+  public void saveDB(String path) {
+    actionDAO.saveDB(path);
+  }
+  public void readDB(String path) {
+    actionDAO.readDB(path);
+  }
+  public List<Flight> getAllFlights() {
+    return actionDAO.getAll();
   }
 
 

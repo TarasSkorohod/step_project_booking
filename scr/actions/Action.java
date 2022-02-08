@@ -2,10 +2,20 @@ package actions;
 
 import controllers.BookingController;
 import controllers.FlightController;
+import objects.AppData;
+import objects.Booking;
 import objects.Flight;
 
 
+import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
+
+
+import static utils.ConfigFiles.BOOKING_FILE;
+import static utils.ConfigFiles.FLIGHT_FILE;
+import static utils.ConfigFormats.FORMAT_BOOKING;
+import static utils.FormatString.showMessageWithAnswer;
 
 public class Action {
     public static   void action() {
@@ -41,19 +51,57 @@ public class Action {
                     flight.prettyFormat();
                     break;
                 case "3":
-                    System.out.println("<<Поиск и бронировка рейса>>");
-                    System.out.print("Место назначения: ");
-                    String place = in.nextLine();
-                    System.out.print("День: ");
-                    int day = in.nextInt();
-                    System.out.print("месяц: ");
-                    int month = in.nextInt();
-                    System.out.print("Год: ");
-                    int year = in.nextInt();
-                    System.out.print("Количество человек: ");
-                    int number = in.nextInt();
+                    List<Flight> searchResult = AppData.getFlight().searchFlightsForBooking();
+                    if (searchResult.size() != 0) {
+                        boolean controlSearchAndBooking = true;
 
-                    FlightController.searchFreeFlight(place, day, month, year, number);
+                        while (controlSearchAndBooking) {
+                            AppData.getFlight().printFlightsMenu(searchResult);
+
+                            System.out.println("Введите число от 1 до " + searchResult.size() + " для выбора рейса или введите 0, чтобы вернуться в меню:");
+
+                            int choiceSearchAndBooking;
+                            try {
+                                Scanner input = new Scanner(System.in);
+                                choiceSearchAndBooking = input.nextInt();
+
+                            } catch (InputMismatchException e) {
+                                choiceSearchAndBooking = -1;
+                            }
+
+                            if (choiceSearchAndBooking >= 1 && choiceSearchAndBooking <= searchResult.size()) {
+                                AppData.getBooking().makingBooking(
+                                  searchResult.get(choiceSearchAndBooking - 1),
+                                  AppData.getFlight().getPassengersCount()
+                                );
+                                AppData.getFlight().setPassengersCount(0);
+                                controlSearchAndBooking = false;
+                            } else if (choiceSearchAndBooking == 0) {
+                                controlSearchAndBooking = false;
+                            } else
+                                System.out.println(
+                                  "Your choice is wrong. Please enter the flight order number [1-" +
+                                    searchResult.size() + "] to book or 0 to return.");
+                        }
+                    }
+                    else{
+                        System.out.println("По данным критериям рейс не найдет, попробуйте ещё раз...");
+                    }
+
+
+//                    System.out.println("<<Поиск и бронировка рейса>>");
+//                    System.out.print("Место назначения: ");
+//                    String place = in.next();
+//                    System.out.print("День: ");
+//                    int day = in.nextInt();
+//                    System.out.print("месяц: ");
+//                    int month = in.nextInt();
+//                    System.out.print("Год: ");
+//                    int year = in.nextInt();
+//                    System.out.print("Количество человек: ");
+//                    int number = in.nextInt();
+//
+//                    FlightController.searchFreeFlight(place, day, month, year, number);
                     break;
                 case "4":
                     System.out.println("<<Отменить бронирование>>");
@@ -61,13 +109,28 @@ public class Action {
                     int id = in.nextInt();
                     break;
                 case "5":
-                    System.out.println("<<Мои рейсы>>");
-                    System.out.print("Введите ваше Имя: ");
-                    String name = in.next();
-                    System.out.print("Введите вашу фамилию: ");
-                    String surname = in.next();
+                    String firstname = showMessageWithAnswer(
+                      "Введите имя:",
+                      "^[А-Я][А-Яа-я]+",
+                      "Вы не корректно ввели имя!");
+
+                    String lastname = showMessageWithAnswer(
+                      "Введите фамилию:",
+                      "^[А-Я][А-Яа-я]+",
+                      "Вы не корректно ввели фамилию!");
+                    List<Booking> bookings = AppData.getBooking().getAllBookingsByFullName(firstname, lastname);
+                    if (bookings.size() > 0 ) {
+
+                        AppData.getBooking().printAllBookings(bookings, FORMAT_BOOKING);
+                        System.out.println();
+                    } else {
+                        System.out.printf("По данным пользователя '%s %s' бронировки не найдено!\n", firstname, lastname);
+                    }
                     break;
                 case "6":
+                    System.out.println("Выход из программы");
+                    AppData.getFlight().saveDB(FLIGHT_FILE);
+                    AppData.getBooking().saveDB(BOOKING_FILE);
                     break;
             }
         } while (!scan.equals("6"));

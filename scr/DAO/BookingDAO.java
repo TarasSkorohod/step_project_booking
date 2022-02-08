@@ -9,10 +9,10 @@ public interface BookingDAO  {
   void saveBooking(Booking booking);
   boolean deleteBooking(int index);
   boolean deleteBooking(Booking booking);
-
   void saveDB(String filePath);
   void readDB(String filePath);
   void loadToDB(List<Booking> bookingList);
+
 
 
 

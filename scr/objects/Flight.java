@@ -1,11 +1,10 @@
 package objects;
 
-import services.PassengerService;
-
 import java.util.List;
 
 public class Flight {
   String destination; //место назначения
+  private String flightNumber;
   int day;
   int month;
   int year;
@@ -13,6 +12,8 @@ public class Flight {
   int vacantSeats; //Свободные места
   List<Passenger> passenger = null;
   int maxPeople = 100; //максимальное количество свободых мест
+  private List<Passenger> passengers;
+
 
   public Flight () {
     this.destination = "";
@@ -32,8 +33,9 @@ public class Flight {
     this.countPeople = countPeople;
   }
 
-  public Flight(String destination, int day, int month, int year, int countPeople, List<Passenger> passenger) {
+  public Flight(String destination, String flightNumber, int day, int month, int year, int countPeople, List<Passenger> passenger) {
     this.destination = destination;
+    this.flightNumber = flightNumber;
     this.day = day;
     this.month = month;
     this.year = year;
@@ -47,6 +49,25 @@ public class Flight {
 
   public String getDate() {
     return day + "/" + month + "/" + year;
+  }
+  public String setDate() {
+    return day + "/" + month + "/" + year;
+  }
+
+
+  public String getFlightNumber() {
+    return flightNumber;
+  }
+
+  public int getMaxPeople() {
+    return maxPeople;
+  }
+
+  public int getPassengersOnBoard() {
+    return passengers.size();
+  }
+  public void setMaxPeople(int maxPeople) {
+    this.maxPeople = maxPeople;
   }
 
   public int getCountPeople() {
@@ -78,4 +99,39 @@ public class Flight {
 
     System.out.println("======================\n");
   }
+  public boolean addPassenger(Passenger passenger) {
+
+    if (!passengers.contains(passenger) &&
+      passengers.size() < maxPeople &&
+      passenger != null) {
+
+      passengers.add(passenger);
+      return true;
+
+    } else
+
+      return false;
+
+  }
+
+  public boolean deletePassenger(Passenger passenger) {
+
+    if (!passengers.contains(passenger)) return false;
+
+    passengers.remove(passenger);
+    return true;
+
+  }
+
+  public boolean deletePassenger(int index) {
+    if (index >= 0 && index < passengers.size()) {
+      if (!passengers.contains(passengers.get(index))) return false;
+
+      passengers.remove(passengers.get(index));
+      return true;
+    }
+    return false;
+  }
+
+
 }
