@@ -8,8 +8,8 @@ public class PassengerController {
     PassengerService.getAllPassenger();
   }
 
-  public static void createNewPassenger(String firstName, String lastName) {
-    PassengerService.createNewPassenger(firstName, lastName);
+  public static void createNewPassenger(Passenger passenger) {
+    PassengerService.createNewPassenger(passenger);
   }
 
   public static Passenger getPassengerByIndex(int index) {
@@ -18,5 +18,9 @@ public class PassengerController {
 
   public static void deletePassenger(int index) {
     PassengerService.deletePassenger(index);
+  }
+
+  public static void displayAllPassenger() {
+    PassengerService.displayAllPassenger();
   }
 }
