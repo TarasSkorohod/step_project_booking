@@ -1,21 +1,30 @@
 package objects;
 
 public class Flight {
-  String destination;
-  String Date;
-  int countPeople;
+  String destination; //место назначения
+  int day;
+  int month;
+  int year;
+  int countPeople; //Количество людей
+  int vacantSeats; //Свободные места
   Passenger passenger;
-  int maxPeople = 100;
+  int maxPeople = 100; //максимальное количество свободых мест
 
   public Flight () {
     this.destination = "";
-    this.Date = "";
+    this.day = 0;
+    this.month = 0;
+    this.year = 0;
     this.countPeople = 0;
+    this.vacantSeats = 0;
+    this.passenger = null;
   }
 
   public Flight(String destination, int day, int month, int year, int countPeople) {
     this.destination = destination;
-    this.Date = day + "/" + month + "/" + year;
+    this.day = day;
+    this.month = month;
+    this.year = year;
     this.countPeople = countPeople;
   }
 
@@ -24,18 +33,30 @@ public class Flight {
   }
 
   public String getDate() {
-    return Date;
+    return day + "/" + month + "/" + year;
   }
 
   public int getCountPeople() {
     return countPeople;
   }
 
+//  public void setCountPeople(int count) {
+//    this.countPeople = count;
+//  }
+
+  public void setVacantSeats(int count) {
+    this.vacantSeats = count;
+  }
+
+  public int getVacantSeats() {
+    return vacantSeats;
+  }
+
   public void prettyFormat() {
     System.out.println(
       "======================\n" +
       "Destination: " + destination + ", \n" +
-      "Date: " + Date + ", \n" +
-      "Count People: free " + countPeople + " out of " + maxPeople + " \n");
+      "Date: " + getDate() + ", \n" +
+      "Count People: free " + vacantSeats + " out of " + maxPeople + " \n");
   }
 }

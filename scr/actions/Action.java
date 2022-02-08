@@ -50,7 +50,8 @@ public class Action {
                     System.out.print("Количество человек: ");
                     int number = in.nextInt();
 
-                    FlightController.createNewFlight(place, day, month, year, number);
+//                    FlightController.createNewFlight(place, day, month, year, number);
+                    FlightController.searchFreeFlight(place, day, month, year, number);
                     break;
                 case "6":
                     break;

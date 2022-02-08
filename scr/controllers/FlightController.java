@@ -25,6 +25,10 @@ public class FlightController {
   }
 
   public static void deleteFlightByIndex(int i) {
-    FlightController.deleteFlightByIndex(i);
+    FlightService.deleteFlightByIndex(i);
+  }
+
+  public static void searchFreeFlight(String place, int day, int month, int year, int number) {
+    FlightService.searchFreeFlight(place, day, month, year, number);
   }
 }
