@@ -41,7 +41,7 @@ public class FlightService{
         flightBooking(countPeople, scan);
         passengerBooking(scan, countPeople);
         freeFlight.setListPassenger(PassengerService.getAllPassenger());
-//        BookingController.saveBooking(flightByIndex);
+        //тут объект отправляется в booking (freeFlight)
 //        deleteFlightByIndex(i);
       }
 
