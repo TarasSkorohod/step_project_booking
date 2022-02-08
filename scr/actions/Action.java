@@ -27,6 +27,7 @@ public class Action {
 
             switch(scan){
                 case "1":
+                    System.out.println("<<Онлайн-табло>>");
                     System.out.println("Рейсы Киева");
                     FlightController.displayAllFlight();
                     break;
@@ -39,6 +40,7 @@ public class Action {
                     flight.prettyFormat();
                     break;
                 case "3":
+                    System.out.println("<<Поиск и бронировка рейса>>");
                     System.out.print("Место назначения: ");
                     String place = in.next();
                     System.out.print("День: ");
@@ -50,8 +52,19 @@ public class Action {
                     System.out.print("Количество человек: ");
                     int number = in.nextInt();
 
-//                    FlightController.createNewFlight(place, day, month, year, number);
                     FlightController.searchFreeFlight(place, day, month, year, number);
+                    break;
+                case "4":
+                    System.out.println("<<Отменить бронирование>>");
+                    System.out.print("Введите id бронирования, чтобы отменить его: ");
+                    int id = in.nextInt();
+                    break;
+                case "5":
+                    System.out.println("<<Мои рейсы>>");
+                    System.out.print("Введите ваше Имя: ");
+                    String name = in.next();
+                    System.out.print("Введите вашу фамилию: ");
+                    String surname = in.next();
                     break;
                 case "6":
                     break;
