@@ -3,6 +3,7 @@ package services;
 import DAO.ActionDAO;
 import collections.CollectionsFlightDao;
 import controllers.BookingController;
+import objects.Booking;
 import objects.Flight;
 import objects.Passenger;
 import utils.GenerateRandomNumbers;
@@ -14,6 +15,10 @@ import java.util.Scanner;
 
 public class FlightService{
   private static final ActionDAO actionDAO = new CollectionsFlightDao();
+
+  private static List<Booking> bookingsList;
+
+
   public static List<Flight> getAllFlight() {
     return actionDAO.getAllFlight();
   }
@@ -34,7 +39,7 @@ public class FlightService{
   }
 
   //Поиск свободных рейсов
-  public static void searchFreeFlight(String destination, int day, int month, int year, int countPeople) {
+  public static void searchFreeFlight(String destination, int day, int month, int year, int countPeople,Booking booking) {
     for (int i = 0; i < actionDAO.getAllFlight().size(); i++) {
       Flight freeFlight = actionDAO.getFlightByIndex(i);
 
@@ -43,8 +48,15 @@ public class FlightService{
         flightBooking(countPeople, scan);
         passengerBooking(scan, countPeople);
         freeFlight.setListPassenger(PassengerService.getAllPassenger());
+//        BookingController.saveBooking()
 //        BookingController.saveBooking(flightByIndex);
 //        deleteFlightByIndex(i);
+      }if (booking != null){
+        if (bookingsList.contains(booking)) {
+          bookingsList.set(bookingsList.indexOf(booking), booking);
+        } else {
+          bookingsList.add(booking);
+        }
       }
 
     }
@@ -110,7 +122,9 @@ public class FlightService{
     return actionDAO.deleteFlight(index);
   }
 
-
+  public static void searchFreeFlight(String place, int day, int month, int year, int number) {
+     FlightService.searchFreeFlight(place, day, month, year, number);
+  }
 
 
   public void saveDB(String path) {
