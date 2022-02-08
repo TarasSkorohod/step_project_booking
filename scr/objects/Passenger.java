@@ -66,11 +66,12 @@ public class Passenger implements Serializable {
 
   @Override
   public String toString() {
-    return "Passenger{" +
-      "firstname='" + firstname + '\'' +
-      ", lastname='" + lastname + '\'' +
-      ", birthDate=" + dateToStr(birthDate, DATE_FORMAT) +
-      ", gender=" + gender +
-      '}';
+    return "Passenger: \n" +
+      "First Name: " + firstname + "," +
+      "\n Last Name: " + lastname + "," +
+      "\n Birth Date: " + dateToStr(birthDate, DATE_FORMAT) + "," +
+      "Gender=" + gender;
   }
+
+
 }
