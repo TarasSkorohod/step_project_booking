@@ -1,5 +1,9 @@
 package objects;
 
+import services.PassengerService;
+
+import java.util.List;
+
 public class Flight {
   String destination; //место назначения
   int day;
@@ -7,7 +11,7 @@ public class Flight {
   int year;
   int countPeople; //Количество людей
   int vacantSeats; //Свободные места
-  Passenger passenger;
+  List<Passenger> passenger = null;
   int maxPeople = 100; //максимальное количество свободых мест
 
   public Flight () {
@@ -28,7 +32,7 @@ public class Flight {
     this.countPeople = countPeople;
   }
 
-  public Flight(String destination, int day, int month, int year, int countPeople, Passenger passenger) {
+  public Flight(String destination, int day, int month, int year, int countPeople, List<Passenger> passenger) {
     this.destination = destination;
     this.day = day;
     this.month = month;
@@ -53,6 +57,10 @@ public class Flight {
 //    this.countPeople = count;
 //  }
 
+  public void setListPassenger(List<Passenger> passenger) {
+    this.passenger = passenger;
+  }
+
   public void setVacantSeats(int count) {
     this.vacantSeats = count;
   }
@@ -62,17 +70,12 @@ public class Flight {
   }
 
   public void prettyFormat() {
-    String pass;
-    if (passenger == null) {
-      pass = "0 count";
-    } else {
-      pass = passenger.toString();
-    }
     System.out.println(
       "======================\n" +
       "Destination: " + destination + ", \n" +
       "Date: " + getDate() + ", \n" +
-      "Count People: free " + vacantSeats + " out of " + maxPeople + " \n" +
-      "Passenger: " + pass);
+      "Count People: free " + vacantSeats + " out of " + maxPeople);
+
+    System.out.println("======================\n");
   }
 }

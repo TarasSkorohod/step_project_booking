@@ -33,19 +33,18 @@ public class FlightService{
 
   //Поиск свободных рейсов
   public static void searchFreeFlight(String destination, int day, int month, int year, int countPeople) {
-//    Flight flight = new Flight(destination, day, month, year, countPeople);
-
     for (int i = 0; i < actionDAO.getAllFlight().size(); i++) {
       Flight freeFlight = actionDAO.getFlightByIndex(i);
+
       if (Objects.equals(freeFlight.getDestination(), destination) && freeFlight.getVacantSeats() >= countPeople) {
         displayingAvailableFlights(freeFlight, i);
         flightBooking(countPeople, scan);
-        Passenger passenger = passengerBooking(scan, countPeople);
-        Flight flight = new Flight(destination, day, month, year, countPeople, passenger);
-        flight.prettyFormat();
+        passengerBooking(scan, countPeople);
+        freeFlight.setListPassenger(PassengerService.getAllPassenger());
 //        BookingController.saveBooking(flightByIndex);
 //        deleteFlightByIndex(i);
       }
+
     }
   }
 
@@ -69,23 +68,20 @@ public class FlightService{
   }
 
   //бронирование пассажиров
-  private static Passenger passengerBooking(Scanner scan, int count) {
-    Passenger result = null;
-
+  private static void passengerBooking(Scanner scan, int count) {
     for (int index = 0; index < count; index++) {
-      System.out.printf("<< Пассажир № %s >>\n", index);
+      System.out.printf("\n<< Пассажир № %s >>\n", index);
       System.out.print("Введите имя: ");
       String firstName = scan.next();
 
       System.out.print("Введите фамилию: ");
       String lastName = scan.next();
 
-      Passenger passenger = new Passenger(firstName, lastName);
-      System.out.printf("Пассажир № %s - добавлен\n", index);
-      result = passenger;
-    }
 
-    return result;
+      Passenger passenger = new Passenger(firstName, lastName);
+      PassengerService.createNewPassenger(passenger);
+      System.out.printf("Пассажир № %s - добавлен\n", index);
+    }
   }
 
   public static Flight getFlightByIndex(int index) {
