@@ -140,4 +140,16 @@ public class FlightController {
     return countOfPassengers;
   }
 
+  public void printAllSortedCurrent24Hours(String format) {
+    flightService.getAllFlights()
+      .stream()
+      .sorted(Comparator.comparingLong(Flight::getDepartureDateTime))
+      .forEach(f -> printFlight(f, format)
+      );
+  }
+  public void displayFlightInfo(Flight flight) {
+    showTitleForFlightsWithSeats();
+    printFlightWithSeats(flight, FORMAT_FLIGHTS_SEATS, 1);
+
+  }
 }
