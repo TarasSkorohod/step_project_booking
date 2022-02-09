@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
+import static services.FlightService.displayingAvailableFlights;
 import static utils.ConfigDate.DATE_FORMAT;
 import static utils.ConfigDate.TIME_FORMAT;
 import static utils.ConfigFormats.FORMAT_FLIGHTS_SEATS;
@@ -20,9 +21,6 @@ public class FlightController {
   private int countOfPassengers = 0;
 
 
-//  public static void getAllFlight() {
-//    FlightService.getAllFlight();
-//  }
 
   public static void displayAllFlight() {
     FlightService.displayAllFlight();
@@ -78,6 +76,16 @@ public class FlightController {
 
     return getFlightsByCriteria(destination, date, this.countOfPassengers);
   }
+  public Flight getByFlightNumber(String flightNumber) {
+    Flight flight = null;
+
+    flight = flightService.getAllFlights()
+      .stream()
+      .filter(f -> f.getFlightNumber().equalsIgnoreCase(flightNumber))
+      .findFirst().orElse(null);
+
+    return flight;
+  }
   public void saveDB(String path) {
     flightService.saveDB(path);
   }
@@ -131,8 +139,5 @@ public class FlightController {
   public int getPassengersCount() {
     return countOfPassengers;
   }
-
-
-
 
 }

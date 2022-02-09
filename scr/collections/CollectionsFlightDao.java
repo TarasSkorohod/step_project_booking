@@ -19,19 +19,18 @@ public final class CollectionsFlightDao implements ActionDAO {
   public List<Flight> getAllFlight() {
     return flights;
   }
+
   @Override
   public void saveFlight(Flight flight) {
-    int index = 0;
-    for (Flight item : flights) {
-      if (item.equals(flight)) {
-        flights.set(index, flight);
-        return;
-      }
-      index++;
+    if (flight != null) {
+    if (flightList.contains(flight)) {
+      flightList.set(flightList.indexOf(flight), flight);
+    } else {
+      flightList.add(flight);
     }
-    flights.add(flight);
   }
 
+}
   @Override
   public Flight getFlightByIndex(int index) {
       try {
@@ -50,10 +49,7 @@ public final class CollectionsFlightDao implements ActionDAO {
     }
     return result;
   }
-  @Override
-  public List<Flight> getAll() {
-    return null;
-  }
+
   @Override
   public void saveDB(String path) {
 
@@ -96,9 +92,6 @@ public final class CollectionsFlightDao implements ActionDAO {
   }
   @Override
   public void loadToDB(List<Flight> listFlight) {
-
-
-
     if (listFlight != null) {
       LocalTime currentTime = LocalTime.now(ZoneId.of(TIME_ZONE));
       LocalDate currentDate = LocalDate.now(ZoneId.of(TIME_ZONE));
@@ -117,14 +110,4 @@ public final class CollectionsFlightDao implements ActionDAO {
       });
     }
   }
-  @Override
-  public Object getDesc() {
-    return null;
-  }
-  @Override
-  public Object getTitleAction() {
-    return null;
-  }
-
-
 }

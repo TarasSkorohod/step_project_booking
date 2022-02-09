@@ -18,23 +18,31 @@ public class Flight {
   int countPeople; //Количество людей
   private List<Passenger> passengers;
 
-// @Override
-//  public boolean equals(Object o) {
-//    if (this == o) return true;
-//    if (o == null || getClass() != o.getClass()) return false;
-//    Flight flight = (Flight) o;
-//    return flightNumber.equals(flight.getFlightNumber());
-//  }
-//
-//  @Override
-//  public int hashCode() {
-//
-//    int result = 11;
-//    int coef = 31;
-//
-//    return coef * result + flightNumber.hashCode();
-//
-//  }
+ @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Flight flight = (Flight) o;
+    return flightNumber.equals(flight.getFlightNumber());
+  }
+
+  @Override
+  public int hashCode() {
+
+    int result = 11;
+    int coef = 31;
+
+    return coef * result + flightNumber.hashCode();
+
+  }
+  public void prettyFormat() {
+    System.out.println(
+      "======================\n" +
+        "Destination: " + destination + ", \n" +
+        "Date: " + getDepartureDateTime() + ", \n" +
+        "Count People: free " + vacantSeats + " out of " + maxPeople + " \n");
+  }
+
 
   @Override
   public String toString() {
@@ -161,5 +169,8 @@ public class Flight {
       return true;
     }
     return false;
+  }
+
+  public void setListPassenger(List<Passenger> allPassenger) {
   }
 }
