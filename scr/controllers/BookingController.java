@@ -17,7 +17,7 @@ import static utils.FormatString.showMessageWithAnswer;
 import static utils.FormatString.showTitleFroBookingList;
 
 public class BookingController {
-  private BookingService bookingService = new BookingService();
+  private static BookingService bookingService = new BookingService();
   private FlightController flightController = new FlightController();
 
   public List<Booking> getAllBookings() {
@@ -28,7 +28,7 @@ public class BookingController {
     bookingService.displayAllBookings();
   }
 
-  public void saveBooking(Booking booking) {
+  public static void saveBooking(Booking booking) {
     bookingService.saveBooking(booking);
   }
 
@@ -155,9 +155,7 @@ public class BookingController {
   }
 
   public void printCancelBookingMenu(List<Booking> bookings) {
-
     showTitleFroBookingList();
-
     printAllBookings(bookings, FORMAT_BOOKING);
   }
 

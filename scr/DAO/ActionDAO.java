@@ -14,4 +14,8 @@ public interface ActionDAO {
   void readDB(String filePath);
 
   void loadToDB(List<Flight> listFlight);
+
+  Object getDesc();
+  Object getTitleAction();
+
 }

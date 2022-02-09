@@ -3,21 +3,16 @@ package collections;
 import DAO.BookingDAO;
 import objects.Booking;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.List;
 
 public class CollectionBookingDAO implements BookingDAO {
   private List<Booking> bookingsList;
 
-
   @Override
   public List<Booking> getAllBookings() {
     return bookingsList;
   }
-
   @Override
   public Booking getBookingByIndex(int index) {
     Booking result = null;
@@ -26,7 +21,6 @@ public class CollectionBookingDAO implements BookingDAO {
     }
     return result;
   }
-
   @Override
   public void saveBooking(Booking booking) {
     if (booking != null){
@@ -37,7 +31,6 @@ public class CollectionBookingDAO implements BookingDAO {
       }
     }
   }
-
   @Override
   public boolean deleteBooking(int index) {
     boolean result = false;
@@ -47,15 +40,12 @@ public class CollectionBookingDAO implements BookingDAO {
     }
     return true;
   }
-
   @Override
   public boolean deleteBooking(Booking booking) {
     return bookingsList.remove(booking);
   }
-
   @Override
-  public void saveDB(String path) {
-    try{
+  public void saveDB(String path) {try {
       File af = new File(path);
       FileOutputStream fileOutput = new FileOutputStream(af.getAbsoluteFile());
       ObjectOutputStream streamOutput = new ObjectOutputStream(fileOutput);
@@ -63,33 +53,35 @@ public class CollectionBookingDAO implements BookingDAO {
       streamOutput.writeObject(bookingsList);
       streamOutput.close();
       fileOutput.close();
-    }catch (IOException e){
+
+    } catch (IOException e) {
       e.getStackTrace();
     }
   }
-
   @Override
   public void readDB(String path) {
 
     List<Booking> listBooking = null;
 
     File file = new File(path);
-    FileOutputStream fi = null;
-    ObjectOutputStream oi = null;
+    FileInputStream fi = null;
+    ObjectInputStream oi = null;
 
-    try{
-      fi = new FileOutputStream(file.getAbsoluteFile());
-      oi = new ObjectOutputStream(fi);
+    try {
+      fi = new FileInputStream(file.getAbsoluteFile());
+      oi = new ObjectInputStream(fi);
+
+      listBooking = (List<Booking>) oi.readObject();
 
 
       oi.close();
       fi.close();
       loadToDB(listBooking);
-    }catch (IOException e){
+
+    } catch (ClassNotFoundException | IOException e) {
       e.getStackTrace();
     }
   }
-
   @Override
   public void loadToDB(List<Booking> bookingList) {
     if (bookingsList != null){

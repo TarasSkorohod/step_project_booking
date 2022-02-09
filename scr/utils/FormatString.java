@@ -37,7 +37,9 @@ public class FormatString {
     System.out.printf(FORMAT_FLIGHTS_SEATS, "Рейс", "Время вылета", "Пункт назначения", "Время перелета", "Своб. места");
   }
 
-
+  public static void showTitleForFlights(){
+    System.out.printf(FORMAT_FLIGHTS, "Рейс", "Время вылета", "Пункт назначения", "Время перелета");
+  }
 
   public static void showTitleFroBookingList(){
     System.out.printf(FORMAT_BOOKING, "Номер бронирования", "Время вылета", "Пункт назначения", "Куплено билетов");

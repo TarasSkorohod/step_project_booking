@@ -16,7 +16,7 @@ import static utils.FormatString.showMessageWithAnswer;
 import static utils.FormatString.showTitleForFlightsWithSeats;
 
 public class FlightController {
-  private FlightService flightService = new FlightService();
+  private final FlightService flightService = new FlightService();
   private int countOfPassengers = 0;
 
 
@@ -27,46 +27,35 @@ public class FlightController {
   public static void displayAllFlight() {
     FlightService.displayAllFlight();
   }
-
   public static Flight getFlightByIndex(int index) {
     FlightService.getFlightByIndex(index);
     return null;
   }
-
-  public static Flight createNewFlight(String destination, int day, int month, int year, int countPeople) {
-    return FlightService.createNewFlight(destination, day, month, year, countPeople);
+  public static void createNewFlight(String destination, int day, int month, int year, int countPeople) {
+    FlightService.createNewFlight(destination, day, month, year, countPeople);
   }
 
   public static void generateFlight() {
     FlightService.generateFlight();
   }
-
   public static void deleteFlightByIndex(int i) {
     FlightService.deleteFlightByIndex(i);
   }
-
   public static void searchFreeFlight(String place, int day, int month, int year, int number) {
     FlightService.searchFreeFlight(place, day, month, year, number);
   }
-
-
-
   public int getMaxSeatNumber() {
-
     return flightService.getAllFlights()
       .stream()
-      .mapToInt(Flight::getMaxPeople)
+      .mapToInt(Flight::getMaxNumSeats)
       .max().orElse(-1);
-
   }
-
   public List<Flight> getFlightsByCriteria(String destination, String date, int passengersNumber) {
-
     return flightService.getAllFlights()
       .stream()
       .filter(
         f -> f.getDestination().equalsIgnoreCase(destination) &&
-          ((f.getMaxPeople() - f.getPassengersOnBoard()) >= passengersNumber)
+          ((f.getMaxNumSeats() - f.getPassengersOnBoard()) >= passengersNumber)
       )
 
       .collect(Collectors.toList());
@@ -89,28 +78,24 @@ public class FlightController {
 
     return getFlightsByCriteria(destination, date, this.countOfPassengers);
   }
-
-
-
   public void saveDB(String path) {
     flightService.saveDB(path);
   }
   public void readDB(String path) {
     flightService.readDB(path);
   }
-
   public void printFlightWithSeats(Flight flight, String format, int index) {
     if (flight != null && format.length() > 0)
       if (index > 1) {
         format = "   ->" + format;
       }
-    String dateTime = String.format("%s %s", dateToStr(Long.valueOf(flight.getDate()), DATE_FORMAT), dateToStr(Long.valueOf(flight.getDate()), TIME_FORMAT));
+    String dateTime = String.format("%s %s", dateToStr(flight.getDepartureDateTime(), DATE_FORMAT), dateToStr(flight.getDepartureDateTime(), TIME_FORMAT));
     System.out.printf(format,
       flight.getFlightNumber(),
       dateTime,
       flight.getDestination(),
-      timeOfDayLongToString(Long.valueOf(flight.getDate())),
-      flight.getMaxPeople() - flight.getPassengersOnBoard()
+      timeOfDayLongToString(flight.getDepartureDateTime()),
+      flight.getMaxNumSeats() - flight.getPassengersOnBoard()
     );
     System.out.println();
   }
@@ -123,22 +108,19 @@ public class FlightController {
       });
   }
   public void printFlightsMenu(List<Flight> flights) {
-
     showTitleForFlightsWithSeats();
-
-
     printFlightsWithAction(flights, FORMAT_FLIGHTS_SEATS);
-
     System.out.println("0. Вернуться в меню");
 
   }
+
   public void printFlight(Flight flight, String format) {
-    String dateTime = String.format("%s %s", dateToStr(Long.valueOf(flight.getDate()), DATE_FORMAT), dateToStr(Long.valueOf(flight.getDate()), TIME_FORMAT));
+    String dateTime = String.format("%s %s", dateToStr(flight.getDepartureDateTime(), DATE_FORMAT), dateToStr(flight.getDepartureDateTime(), TIME_FORMAT));
     System.out.printf(format,
       flight.getFlightNumber(),
       dateTime,
       flight.getDestination(),
-      timeOfDayLongToString(Long.valueOf(flight.getDate()))
+      timeOfDayLongToString(flight.getDepartureDateTime())
     );
   }
 
@@ -148,6 +130,8 @@ public class FlightController {
   public int getPassengersCount() {
     return countOfPassengers;
   }
+
+
 
 
 }

@@ -34,16 +34,13 @@ public class Booking implements Serializable {
   }
 
   private long setBookingNumber() {
-
     return dateTime.getYear() * 10000000000L +
       dateTime.getMonth().getValue() * 100000000 +
       dateTime.getDayOfMonth() * 1000000 +
       dateTime.getHour() * 10000 +
       dateTime.getMinute() * 100 +
       dateTime.getSecond();
-
   }
-
   public LocalDateTime getDateTime() {
     return dateTime;
   }

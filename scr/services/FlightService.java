@@ -13,10 +13,13 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
+import static controllers.FlightController.createNewFlight;
+
 public class FlightService{
   private static final ActionDAO actionDAO = new CollectionsFlightDao();
 
   private static List<Booking> bookingsList;
+  private static Booking flightByIndex;
 
 
   public static List<Flight> getAllFlight() {
@@ -28,9 +31,10 @@ public class FlightService{
       for (int i = 0; i < getAllFlight().size(); i++) {
         System.out.println("======================");
         System.out.println("Index flight - " + i);
-        getAllFlight().get(i).prettyFormat();
+        getAllFlight().get(i).toString();
       }
   }
+
 
   public static Flight createNewFlight(String destination, int day, int month, int year, int countPeople) {
     Flight flight = new Flight(destination, day, month, year, countPeople);
@@ -39,34 +43,20 @@ public class FlightService{
   }
 
   //Поиск свободных рейсов
-  public static void searchFreeFlight(String destination, int day, int month, int year, int countPeople,Booking booking) {
+  public static void searchFreeFlight(String destination, int day, int month, int year, int countPeople) {
     for (int i = 0; i < actionDAO.getAllFlight().size(); i++) {
       Flight freeFlight = actionDAO.getFlightByIndex(i);
 
-      if (Objects.equals(freeFlight.getDestination(), destination) && freeFlight.getVacantSeats() >= countPeople) {
-        displayingAvailableFlights(freeFlight, i);
-        flightBooking(countPeople, scan);
-        passengerBooking(scan, countPeople);
-        freeFlight.setListPassenger(PassengerService.getAllPassenger());
-//        BookingController.saveBooking()
-//        BookingController.saveBooking(flightByIndex);
-//        deleteFlightByIndex(i);
-      }if (booking != null){
-        if (bookingsList.contains(booking)) {
-          bookingsList.set(bookingsList.indexOf(booking), booking);
-        } else {
-          bookingsList.add(booking);
-        }
-      }
+    }
 
     }
-  }
+
 
   //Отображение доступных рейсов
   private static void displayingAvailableFlights(Flight freeFlight, int index) {
     System.out.println("======================");
     System.out.println("Index flight - " + index);
-    freeFlight.prettyFormat();
+    freeFlight.toString();
   }
 
   //бронирование рейса
@@ -78,7 +68,7 @@ public class FlightService{
     int finishCountSeats = flightByIndex.getVacantSeats() - count;
 
     flightByIndex.setVacantSeats(finishCountSeats);
-    flightByIndex.prettyFormat();
+    flightByIndex.toString();
   }
 
   //бронирование пассажиров
@@ -121,12 +111,9 @@ public class FlightService{
   public static boolean deleteFlightByIndex(int index) {
     return actionDAO.deleteFlight(index);
   }
-
-  public static void searchFreeFlight(String place, int day, int month, int year, int number) {
-     FlightService.searchFreeFlight(place, day, month, year, number);
-  }
-
-
+//  public static void searchFreeFlight(String place, int day, int month, int year, int number) {
+//     FlightService.searchFreeFlight(place, day, month, year, number);
+//  }
   public void saveDB(String path) {
     actionDAO.saveDB(path);
   }

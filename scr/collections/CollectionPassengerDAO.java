@@ -8,11 +8,11 @@ import java.util.List;
 public final class CollectionPassengerDAO implements PassengerDAO {
   List<Passenger> passengers = new ArrayList<>(0);
 
+
   @Override
   public List<Passenger> getAllPassenger() {
     return passengers;
   }
-
   @Override
   public void savePassenger(Passenger passenger) {
     int index = 0;
@@ -25,7 +25,6 @@ public final class CollectionPassengerDAO implements PassengerDAO {
     }
     passengers.add(passenger);
   }
-
   @Override
   public Passenger getPassengerByIndex(int index) {
     try {
@@ -35,7 +34,6 @@ public final class CollectionPassengerDAO implements PassengerDAO {
       return null;
     }
   }
-
   @Override
   public boolean deletePassenger(int index) {
     boolean result = false;

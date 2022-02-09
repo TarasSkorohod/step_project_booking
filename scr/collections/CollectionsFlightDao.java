@@ -19,7 +19,6 @@ public final class CollectionsFlightDao implements ActionDAO {
   public List<Flight> getAllFlight() {
     return flights;
   }
-
   @Override
   public void saveFlight(Flight flight) {
     int index = 0;
@@ -42,7 +41,6 @@ public final class CollectionsFlightDao implements ActionDAO {
         return null;
       }
   }
-
   @Override
   public boolean deleteFlight(int index) {
     boolean result = false;
@@ -52,12 +50,10 @@ public final class CollectionsFlightDao implements ActionDAO {
     }
     return result;
   }
-
   @Override
   public List<Flight> getAll() {
     return null;
   }
-
   @Override
   public void saveDB(String path) {
 
@@ -73,7 +69,6 @@ public final class CollectionsFlightDao implements ActionDAO {
       e.getStackTrace();
     }
   }
-
   @Override
   public void readDB(String path) {
     List<Flight> listFlight = null;
@@ -99,28 +94,36 @@ public final class CollectionsFlightDao implements ActionDAO {
     }
 
   }
-
   @Override
   public void loadToDB(List<Flight> listFlight) {
+
+
+
     if (listFlight != null) {
       LocalTime currentTime = LocalTime.now(ZoneId.of(TIME_ZONE));
       LocalDate currentDate = LocalDate.now(ZoneId.of(TIME_ZONE));
       ZoneOffset zoneOffset = currentDate.atStartOfDay(ZoneId.of(TIME_ZONE)).getOffset();
       listFlight.forEach(flight -> {
         LocalDate flightDepartureDate = currentDate;
-        LocalTime flightDepartureTime = Instant.ofEpochMilli(Long.parseLong(flight.getDate())).atOffset(zoneOffset).toLocalTime();
+        LocalTime flightDepartureTime = Instant.ofEpochMilli(flight.getDepartureDateTime()).atOffset(zoneOffset).toLocalTime();
         if (flightDepartureTime.isBefore(currentTime)) {
           flightDepartureDate = currentDate.plusDays(1);
         }
         long departureDateTimeLong = LocalDateTime.of(flightDepartureDate,flightDepartureTime).toInstant(zoneOffset).toEpochMilli();
-        flight.setDate();
+        flight.setDepartureDateTime(departureDateTimeLong);
 
         saveFlight(flight);
 
       });
-
     }
-
+  }
+  @Override
+  public Object getDesc() {
+    return null;
+  }
+  @Override
+  public Object getTitleAction() {
+    return null;
   }
 
 
