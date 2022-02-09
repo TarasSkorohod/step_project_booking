@@ -34,16 +34,13 @@ public class Booking implements Serializable {
   }
 
   private long setBookingNumber() {
-
     return dateTime.getYear() * 10000000000L +
       dateTime.getMonth().getValue() * 100000000 +
       dateTime.getDayOfMonth() * 1000000 +
       dateTime.getHour() * 10000 +
       dateTime.getMinute() * 100 +
       dateTime.getSecond();
-
   }
-
   public LocalDateTime getDateTime() {
     return dateTime;
   }
@@ -64,6 +61,37 @@ public class Booking implements Serializable {
     this.flight = flight;
   }
 
+  public boolean addPassenger(Passenger passenger){
+    if (!passengers.contains(passenger)&&
+      passenger != null){
+      passengers.add(passenger);
+      return true;
+    }else {return false;}
+  }
+
+  public boolean deletePassenger (Passenger passenger){
+    if (!passengers.contains(passenger)) {return false;}
+
+    passengers.remove(passenger);
+    return true;
+  }
+
+  public boolean deletePassenger(int index) {
+    if (index >= 0 && index < passengers.size()) {
+      if (!passengers.contains(passengers.get(index))) return false;
+
+      passengers.remove(passengers.get(index));
+      return true;
+    }
+    return false;
+  }
+
+  public Passenger createPassenger(String firstname, String lastname, long birthdate, Gender gender) {
+    Passenger result = new Passenger(firstname, lastname, birthdate, gender);
+    addPassenger(result);
+
+    return result;
+  }
 
   @Override
   public boolean equals(Object o) {

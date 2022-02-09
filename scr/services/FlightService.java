@@ -2,16 +2,26 @@ package services;
 
 import DAO.ActionDAO;
 import collections.CollectionsFlightDao;
+import controllers.BookingController;
+import objects.Booking;
 import objects.Flight;
 import objects.Passenger;
 import utils.GenerateRandomNumbers;
+
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
+import static controllers.FlightController.createNewFlight;
+
 public class FlightService{
   private static final ActionDAO actionDAO = new CollectionsFlightDao();
+
+  private static List<Booking> bookingsList;
+  private static Booking flightByIndex;
+
+
   public static List<Flight> getAllFlight() {
     return actionDAO.getAllFlight();
   }
@@ -25,6 +35,7 @@ public class FlightService{
       }
   }
 
+
   public static Flight createNewFlight(String destination, int day, int month, int year, int countPeople) {
     Flight flight = new Flight(destination, day, month, year, countPeople);
     actionDAO.saveFlight(flight);
@@ -36,23 +47,16 @@ public class FlightService{
     for (int i = 0; i < actionDAO.getAllFlight().size(); i++) {
       Flight freeFlight = actionDAO.getFlightByIndex(i);
 
-      if (Objects.equals(freeFlight.getDestination(), destination) && freeFlight.getVacantSeats() >= countPeople) {
-        displayingAvailableFlights(freeFlight, i);
-        flightBooking(countPeople, scan);
-        passengerBooking(scan, countPeople);
-        freeFlight.setListPassenger(PassengerService.getAllPassenger());
-        //тут объект отправляется в booking (freeFlight)
-//        deleteFlightByIndex(i);
-      }
+    }
 
     }
-  }
+
 
   //Отображение доступных рейсов
   private static void displayingAvailableFlights(Flight freeFlight, int index) {
     System.out.println("======================");
     System.out.println("Index flight - " + index);
-    freeFlight.prettyFormat();
+    freeFlight.toString();
   }
 
   //бронирование рейса
@@ -64,7 +68,7 @@ public class FlightService{
     int finishCountSeats = flightByIndex.getVacantSeats() - count;
 
     flightByIndex.setVacantSeats(finishCountSeats);
-    flightByIndex.prettyFormat();
+    flightByIndex.toString();
   }
 
   //бронирование пассажиров
@@ -101,10 +105,26 @@ public class FlightService{
       createNewFlight(destination, day, month, year, countPeople);
       Flight flight = getFlightByIndex(i);
       flight.setVacantSeats(vacantSeats);
+      flight.setDestination(destination);
+      flight.setFlightNumber(Integer.toString(i));
     }
   }
 
   public static boolean deleteFlightByIndex(int index) {
     return actionDAO.deleteFlight(index);
   }
+//  public static void searchFreeFlight(String place, int day, int month, int year, int number) {
+//     FlightService.searchFreeFlight(place, day, month, year, number);
+//  }
+  public void saveDB(String path) {
+    actionDAO.saveDB(path);
+  }
+  public void readDB(String path) {
+    actionDAO.readDB(path);
+  }
+  public List<Flight> getAllFlights() {
+    return actionDAO.getAll();
+  }
+
+
 }

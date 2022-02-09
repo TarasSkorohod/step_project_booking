@@ -5,16 +5,15 @@ import controllers.BookingController;
 import controllers.FlightController;
 
 public class AppData {
-  private final BookingController booking = new BookingController();
-  private final FlightController flight = new FlightController();
+  private static final BookingController booking = new BookingController();
+  private static final FlightController flight = new FlightController();
 
-  public BookingController getBooking() {
-    return this.booking;
+  public static BookingController getBooking() {
+    return booking;
   }
 
-  public FlightController getFlight() {
-    return this.flight;
+  public static FlightController getFlight() {
+    return flight;
   }
-
 
 }
