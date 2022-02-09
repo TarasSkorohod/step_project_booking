@@ -89,6 +89,7 @@ public class FlightController {
       if (index > 1) {
         format = "   ->" + format;
       }
+    assert flight != null;
     String dateTime = String.format("%s %s", dateToStr(flight.getDepartureDateTime(), DATE_FORMAT), dateToStr(flight.getDepartureDateTime(), TIME_FORMAT));
     System.out.printf(format,
       flight.getFlightNumber(),

@@ -18,23 +18,23 @@ public class Flight {
   int countPeople; //Количество людей
   private List<Passenger> passengers;
 
-// 1 @Override
+// @Override
 //  public boolean equals(Object o) {
 //    if (this == o) return true;
 //    if (o == null || getClass() != o.getClass()) return false;
 //    Flight flight = (Flight) o;
 //    return flightNumber.equals(flight.getFlightNumber());
 //  }
-
-  @Override
-  public int hashCode() {
-
-    int result = 11;
-    int coef = 31;
-
-    return coef * result + flightNumber.hashCode();
-
-  }
+//
+//  @Override
+//  public int hashCode() {
+//
+//    int result = 11;
+//    int coef = 31;
+//
+//    return coef * result + flightNumber.hashCode();
+//
+//  }
 
   @Override
   public String toString() {
