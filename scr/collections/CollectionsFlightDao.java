@@ -51,6 +51,11 @@ public final class CollectionsFlightDao implements ActionDAO {
   }
 
   @Override
+  public List<Flight> getAll() {
+    return null;
+  }
+
+  @Override
   public void saveDB(String path) {
 
     try {

@@ -32,12 +32,12 @@ public class ActionShowFlightById extends Actions implements MenuDAO {
 
   @Override
   public void doAction() {
-
+    FlightController.displayAllFlight();
     String flightNumber = showMessageWithAnswer("Введите номер рейса:");
 
 
-    Flight flight = this.appData.getFlight().getByFlightNumber(flightNumber);
-    FlightController.getFlightByIndex(flight.getMaxNumSeats());
+    Flight flight = AppData.getFlight().getByFlightNumber(flightNumber);
+//    FlightController.getFlightByIndex(flight.getMaxNumSeats());
 
     if (flight != null) {
       appData.getFlight().displayFlightInfo(flight);

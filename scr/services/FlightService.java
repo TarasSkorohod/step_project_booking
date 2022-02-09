@@ -118,8 +118,9 @@ public class FlightService{
     actionDAO.readDB(path);
   }
   public List<Flight> getAllFlights() {
-    return ActionDAO.getAll();
+    return actionDAO.getAll();
   }
+
 
 
 }

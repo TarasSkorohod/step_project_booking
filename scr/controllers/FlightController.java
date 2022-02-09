@@ -29,6 +29,7 @@ public class FlightController {
     FlightService.getFlightByIndex(index);
     return null;
   }
+
   public static void createNewFlight(String destination, int day, int month, int year, int countPeople) {
     FlightService.createNewFlight(destination, day, month, year, countPeople);
   }

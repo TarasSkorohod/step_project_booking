@@ -24,5 +24,6 @@ public class Action {
         actions.add(new ActionExit(appData));
 
         return actions;
+
     }
 }

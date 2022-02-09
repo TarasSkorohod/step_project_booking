@@ -10,9 +10,9 @@ public interface ActionDAO {
   boolean deleteFlight(int index);
 
 
-  static List<Flight> getAll(){
-    return getAll();
-  }
+  List<Flight> getAll();
+
+
 
 
 

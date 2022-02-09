@@ -27,13 +27,13 @@ public class ActionAddToBooking extends Actions implements MenuDAO {
   @Override
   public void doAction() {
 
-    List<Flight> searchResult = appData.getFlight().searchFlightsForBooking();
+    List<Flight> searchResult = AppData.getFlight().searchFlightsForBooking();
 
     if (searchResult.size() != 0) {
       boolean controlSearchAndBooking = true;
 
       while (controlSearchAndBooking) {
-        appData.getFlight().printFlightsMenu(searchResult);
+        AppData.getFlight().printFlightsMenu(searchResult);
 
         System.out.println("Введите число от 1 до " + searchResult.size() + " для выбора рейса или введите 0, чтобы вернуться в меню:");
 
@@ -47,11 +47,11 @@ public class ActionAddToBooking extends Actions implements MenuDAO {
         }
 
         if (choiceSearchAndBooking >= 1 && choiceSearchAndBooking <= searchResult.size()) {
-          appData.getBooking().makingBooking(
+          AppData.getBooking().makingBooking(
             searchResult.get(choiceSearchAndBooking - 1),
-            appData.getFlight().getPassengersCount()
+            AppData.getFlight().getPassengersCount()
           );
-          appData.getFlight().setPassengersCount(0);
+          AppData.getFlight().setPassengersCount(0);
           controlSearchAndBooking = false;
         } else if (choiceSearchAndBooking == 0) {
           controlSearchAndBooking = false;
