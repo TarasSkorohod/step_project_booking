@@ -21,7 +21,7 @@ public class Action {
         actions.add(new ActionCancelBooking(appData));
         actions.add(new ActionShowMyFlights(appData));
 
-
+        actions.add(new ActionExit(appData));
 
         return actions;
     }
