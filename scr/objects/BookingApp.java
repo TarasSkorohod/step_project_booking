@@ -32,6 +32,7 @@ public class BookingApp {
   }
 
   public void start() {
+    FlightService.generateFlight();
 
     Scanner in = new Scanner(System.in);
     Optional<MenuDAO> actions;
