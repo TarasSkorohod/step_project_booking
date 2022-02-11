@@ -15,7 +15,7 @@ import static main.java.utils.FormatDate.printNow;
 public class SetTestFlights {
     private static final String COMMA_DELIMITER = ",";
 
-    public static void main(String[] args) throws ParseException, FileNotFoundException {
+    public static void setTestFlights() throws ParseException, FileNotFoundException {
         int dayInMinute = 24 * 60;
         String myTime = printNow();
         SimpleDateFormat df = new SimpleDateFormat(DATE_TIME_FORMAT);
@@ -81,7 +81,7 @@ public class SetTestFlights {
         } catch (ClassNotFoundException | IOException e) {
             e.getStackTrace();
         }
-        System.out.println(listFlight);
+//        System.out.println(listFlight);
 
     }
 
