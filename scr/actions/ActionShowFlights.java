@@ -25,7 +25,7 @@ public class ActionShowFlights extends Actions implements MenuDAO {
   public void doAction() {
     System.out.printf("%s\n", "Рейсы из аэропорта \"Киев\":" + printNow());
     showTitleForFlights();
-//    AppData.getFlight().printAllSortedCurrent24Hours(FORMAT_FLIGHTS);
+    AppData.getFlight().printAllSortedCurrent24Hours(FORMAT_FLIGHTS);
     FlightController.displayAllFlight();
 
   }
