@@ -23,10 +23,10 @@ public final class CollectionsFlightDao implements ActionDAO {
   @Override
   public void saveFlight(Flight flight) {
     if (flight != null) {
-    if (flightList.contains(flight)) {
-      flightList.set(flightList.indexOf(flight), flight);
+    if (flights.contains(flight)) {
+      flights.set(flights.indexOf(flight), flight);
     } else {
-      flightList.add(flight);
+      flights.add(flight);
     }
   }
 

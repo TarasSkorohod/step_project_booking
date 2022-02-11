@@ -2,14 +2,14 @@ package services;
 
 import DAO.ActionDAO;
 import collections.CollectionsFlightDao;
+import controllers.FlightController;
 import objects.Booking;
 import objects.Flight;
 import objects.Passenger;
 import utils.GenerateRandomNumbers;
 
-
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class FlightService{
@@ -33,7 +33,12 @@ public class FlightService{
     }
   }
   public static Flight createNewFlight(String destination, int day, int month, int year, int countPeople) {
-    Flight flight = new Flight(destination, day, month, year, countPeople);
+//    Flight flight = new Flight(destination, day, month, year, countPeople);
+    Flight flight = new Flight(
+      "String flightNumber",
+      1556175797428L,
+      "String destination",
+      10);
     actionDAO.saveFlight(flight);
     return flight;
   }
@@ -99,11 +104,14 @@ public class FlightService{
       int countPeople = GenerateRandomNumbers.getRandomNumberForCountPeople();
       int vacantSeats = GenerateRandomNumbers.getRandomNumberForCountVacantSeats();
 
-      createNewFlight(destination, day, month, year, countPeople);
+      FlightController.createNewFlight(destination, day, month, year, countPeople);
       Flight flight = getFlightByIndex(i);
       flight.setVacantSeats(vacantSeats);
+      flight.setFlightNumber(Integer.toString(i));
     }
   }
+
+
 
   public static boolean deleteFlightByIndex(int index) {
     return actionDAO.deleteFlight(index);
