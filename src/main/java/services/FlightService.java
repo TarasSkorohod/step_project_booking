@@ -11,29 +11,25 @@ public class FlightService {
 
     private ActionDAO flightDao = new CollectionFlightDAO();
     public ActionDAO getFlightDao() {return flightDao;}
+
     public List<Flight> getAllFlights() {
         return flightDao.getAllFlight();
     }
-    public void displayAllFlights() {
 
+    public void displayAllFlights() {
         flightDao.getAllFlight().forEach(System.out::println);
 
     }
-    public void saveFlight(Flight flight) {
-        flightDao.saveFlight(flight);
-    }
-    public void saveDB(String path) {
-        flightDao.saveDB(path);
-    }
+    public void saveFlight(Flight flight) {flightDao.saveFlight(flight);}
+    public void saveDB(String path) {flightDao.saveDB(path);}
     public void readDB(String path) {
         flightDao.readDB(path);
     }
+
     public void deleteFlight(int index) {
         flightDao.remove(index);
     }
-    public void deleteFlight(Flight flight) {
-        flightDao.remove(flight);
-    }
+    public void deleteFlight(Flight flight) {flightDao.remove(flight);}
 
     public int count() {
         return flightDao.getAllFlight().size();

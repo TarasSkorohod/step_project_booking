@@ -26,6 +26,7 @@ public class ActionExit  extends Action implements MenuDAO {
 
         appData.getFlight().saveDB(FLIGHT_FILE);
         appData.getBooking().saveDB(BOOKING_FILE);
+        appData.getUser().saveDB(USERS_FILE);
     }
 
     @Override

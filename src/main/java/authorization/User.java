@@ -1,6 +1,8 @@
 package main.java.authorization;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
   private String username;
   private String password;
 
@@ -21,7 +23,8 @@ public class User {
     return password;
   }
 
-  public void setPassword(String password) {
+  public boolean setPassword(String password) {
     this.password = password;
+    return false;
   }
 }

@@ -12,16 +12,12 @@ public class CollectionBookingDAO implements BookingDAO {
 
 
     public CollectionBookingDAO() {
-
         bookingsList = new ArrayList();
-
     }
 
     @Override
     public List<Booking> getAllBookings() {
-
         return bookingsList;
-
     }
 
     @Override
@@ -36,7 +32,6 @@ public class CollectionBookingDAO implements BookingDAO {
 
     @Override
     public void saveBooking(Booking booking) {
-
         if (booking != null) {
             if (bookingsList.contains(booking)) {
                 bookingsList.set(bookingsList.indexOf(booking), booking);

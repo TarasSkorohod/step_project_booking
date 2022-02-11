@@ -30,9 +30,7 @@ public class BookingController {
 //        bookingService.displayAllBookings();
 //    }
 
-    public void saveBooking(Booking booking) {
-        bookingService.saveBooking(booking);
-    }
+    public void saveBooking(Booking booking) {bookingService.saveBooking(booking);}
 
     public void saveDB(String filePath) {
         bookingService.saveDB(filePath);

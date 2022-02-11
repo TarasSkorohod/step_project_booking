@@ -1,5 +1,6 @@
 package main.java;
 
+import main.java.authorization.User;
 import main.java.objects.Flight;
 
 import java.io.*;
@@ -23,13 +24,15 @@ public class SetTestFlights {
         Calendar cal = Calendar.getInstance();
         cal.setTime(d);
         List<Flight> flightList = new ArrayList();
+
+        List<User> userList = new ArrayList<>();
+
         List<String> destinations = sortarray();
+
         int destinationsLength = destinations.size();
 
         for (int i = 15; i < dayInMinute; i = i + 30){
             cal.add(Calendar.MINUTE, 30);
-
-
             Flight f = new Flight(
                     genChars(),
                     dateTimeToLong(df.format(cal.getTime())),
@@ -40,9 +43,25 @@ public class SetTestFlights {
 
         }
         saveDB(flightList);
+        saveUS(userList);
         readDB();
     }
 
+    public static void saveUS(List<User> userList){
+        String pathA = "./db/users.txt";
+        try {
+            File af = new File(pathA);
+            FileOutputStream fileOutput = new FileOutputStream(af.getAbsoluteFile());
+            ObjectOutputStream streamOutput = new ObjectOutputStream(fileOutput);
+            streamOutput.writeObject(userList);
+            streamOutput.close();
+            fileOutput.close();
+
+        }catch (IOException e) {
+            e.getStackTrace();
+        }
+
+    }
     public static void saveDB(List<Flight> flightList) {
         String path = "./db/flights.txt";
 
@@ -61,6 +80,8 @@ public class SetTestFlights {
 
     public static void readDB() {
         String path = "./db/flights.txt";
+//        String pathA = "./db/users.txt";
+//        List<User> listUser = null;
         List<Flight> listFlight = null;
 
         File file = new File(path);
@@ -102,6 +123,7 @@ public class SetTestFlights {
 
         return a;
     }
+
 
 
     public static List<String> sortarray(){
