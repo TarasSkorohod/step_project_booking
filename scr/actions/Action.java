@@ -7,6 +7,10 @@ import objects.Flight;
 import java.util.Scanner;
 
 public class Action {
+    public static void byI(int i) {
+        System.out.println("======================");
+        System.out.println("Index flight - " + i);
+    }
     public static void action() {
         FlightController.generateFlight();
         Scanner in = new Scanner(System.in);
