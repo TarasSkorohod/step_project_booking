@@ -3,6 +3,7 @@ package objects;
 import DAO.ActionDAO;
 import DAO.MenuDAO;
 import actions.Action;
+import services.FlightService;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,14 +32,14 @@ public class BookingApp {
   }
 
   public void start() {
-
+    FlightService.generateFlight();
 
     Scanner in = new Scanner(System.in);
     Optional<MenuDAO> actions;
     Boolean die = false;
     do {
       printMainMenu();
-      System.out.println("Выберите действие:");
+      System.out.print("Выберите действие: ");
 
 
       String commandUser = in.nextLine().trim();
