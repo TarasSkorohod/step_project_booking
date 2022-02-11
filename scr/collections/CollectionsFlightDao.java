@@ -52,7 +52,7 @@ public final class CollectionsFlightDao implements ActionDAO {
 
   @Override
   public List<Flight> getAll() {
-      return flightList;
+      return null;
   }
 
   @Override
