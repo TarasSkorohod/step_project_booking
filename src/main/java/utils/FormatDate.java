@@ -33,6 +33,10 @@ public class FormatDate {
         return LocalDateTime.now(ZoneId.of(TIME_ZONE)).format(DateTimeFormatter.ofPattern(DATE_TIME_FORMAT));
     }
 
+    public static String printNowTimeForLogger(){
+        return LocalDateTime.now(ZoneId.of(TIME_ZONE)).format(DateTimeFormatter.ofPattern(DATE_TIME_FORMAT_LOGGER));
+    }
+
     public static String timeOfDayLongToString(Long time) {
         return LocalTime.ofNanoOfDay(time)
                 .format(DateTimeFormatter.ofPattern(TIME_FORMAT));
