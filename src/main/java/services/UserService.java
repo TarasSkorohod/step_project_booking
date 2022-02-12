@@ -4,9 +4,6 @@ import main.java.DAO.AuthDAO;
 import main.java.authorization.User;
 import main.java.collections.CollectionUsersDAO;
 
-import main.java.objects.Booking;
-import main.java.objects.Flight;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +23,6 @@ public class UserService implements AuthDAO {
     }
     return flag;
   }
-
   public void regist(User user) {
     array.add(user);
   }

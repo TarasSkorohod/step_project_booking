@@ -2,7 +2,6 @@ package main.java.DAO;
 
 import main.java.authorization.User;
 
-
 import java.util.List;
 
 public interface AuthDAO {
