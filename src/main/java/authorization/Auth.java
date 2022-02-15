@@ -1,6 +1,7 @@
 package main.java.authorization;
 
 import main.java.DAO.AuthDAO;
+import main.java.logger.Logs;
 import main.java.services.UserService;
 
 import java.util.Scanner;
@@ -15,6 +16,7 @@ public class Auth {
       Scanner sc = new Scanner(System.in);
       AuthDAO uid = new UserService();
       String choice = sc.nextLine();
+      Logs.log("Init variables", "info");
       switch (choice) {
 
         // логин
@@ -31,9 +33,12 @@ public class Auth {
             System.out.println("«Успешный вход»");
             exit = false;
             System.out.println("==============================");
+            Logs.log("User successfully login", "info");
           } else {
             System.out.println("«Неверное имя пользователя или пароль, вход не выполнен»");
+            Logs.log("Error: wrong username or password", "warning");
           }
+
           break;
 
         // зарегистрироваться
@@ -52,6 +57,7 @@ public class Auth {
           uid.regist(u);
 
           System.out.println("Регистрация прошла успешно");
+          Logs.log("Registration successfully", "info");
           break;
 
         // Выход

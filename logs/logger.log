@@ -1,1 +1,223 @@
-[00:03:09] INFO - Set test flights
+[17:41:30] INFO - Set test flights
+[17:41:30] INFO - The current time is received
+[17:41:31] INFO - Init flight list
+[17:41:31] INFO - File to path: ./db/city.txt; Created successfully
+[17:41:31] INFO - City added to db
+[17:41:31] INFO - Init destinations
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 7379
+[17:41:31] INFO - Generated number: 5
+[17:41:31] INFO - Flight #15 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 9293
+[17:41:31] INFO - Generated number: 12
+[17:41:31] INFO - Flight #45 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 466
+[17:41:31] INFO - Generated number: 8
+[17:41:31] INFO - Flight #75 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 6064
+[17:41:31] INFO - Generated number: 1
+[17:41:31] INFO - Flight #105 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 2641
+[17:41:31] INFO - Generated number: 13
+[17:41:31] INFO - Flight #135 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 6511
+[17:41:31] INFO - Generated number: 10
+[17:41:31] INFO - Flight #165 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 7877
+[17:41:31] INFO - Generated number: 10
+[17:41:31] INFO - Flight #195 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 5737
+[17:41:31] INFO - Generated number: 0
+[17:41:31] INFO - Flight #225 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 7564
+[17:41:31] INFO - Generated number: 8
+[17:41:31] INFO - Flight #255 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 4208
+[17:41:31] INFO - Generated number: 8
+[17:41:31] INFO - Flight #285 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 2046
+[17:41:31] INFO - Generated number: 4
+[17:41:31] INFO - Flight #315 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 3437
+[17:41:31] INFO - Generated number: 12
+[17:41:31] INFO - Flight #345 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 3296
+[17:41:31] INFO - Generated number: 1
+[17:41:31] INFO - Flight #375 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 4339
+[17:41:31] INFO - Generated number: 7
+[17:41:31] INFO - Flight #405 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 9292
+[17:41:31] INFO - Generated number: 0
+[17:41:31] INFO - Flight #435 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 3228
+[17:41:31] INFO - Generated number: 1
+[17:41:31] INFO - Flight #465 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 8929
+[17:41:31] INFO - Generated number: 5
+[17:41:31] INFO - Flight #495 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 8868
+[17:41:31] INFO - Generated number: 4
+[17:41:31] INFO - Flight #525 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 7416
+[17:41:31] INFO - Generated number: 2
+[17:41:31] INFO - Flight #555 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 274
+[17:41:31] INFO - Generated number: 1
+[17:41:31] INFO - Flight #585 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 6036
+[17:41:31] INFO - Generated number: 9
+[17:41:31] INFO - Flight #615 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 8991
+[17:41:31] INFO - Generated number: 6
+[17:41:31] INFO - Flight #645 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 6849
+[17:41:31] INFO - Generated number: 2
+[17:41:31] INFO - Flight #675 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 1533
+[17:41:31] INFO - Generated number: 11
+[17:41:31] INFO - Flight #705 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 2483
+[17:41:31] INFO - Generated number: 6
+[17:41:31] INFO - Flight #735 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 7251
+[17:41:31] INFO - Generated number: 2
+[17:41:31] INFO - Flight #765 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 3484
+[17:41:31] INFO - Generated number: 12
+[17:41:31] INFO - Flight #795 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 4548
+[17:41:31] INFO - Generated number: 1
+[17:41:31] INFO - Flight #825 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 909
+[17:41:31] INFO - Generated number: 1
+[17:41:31] INFO - Flight #855 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 3540
+[17:41:31] INFO - Generated number: 13
+[17:41:31] INFO - Flight #885 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 9757
+[17:41:31] INFO - Generated number: 9
+[17:41:31] INFO - Flight #915 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 6523
+[17:41:31] INFO - Generated number: 3
+[17:41:31] INFO - Flight #945 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 9698
+[17:41:31] INFO - Generated number: 3
+[17:41:31] INFO - Flight #975 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 8448
+[17:41:31] INFO - Generated number: 9
+[17:41:31] INFO - Flight #1005 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 3098
+[17:41:31] INFO - Generated number: 13
+[17:41:31] INFO - Flight #1035 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 8443
+[17:41:31] INFO - Generated number: 11
+[17:41:31] INFO - Flight #1065 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 6802
+[17:41:31] INFO - Generated number: 2
+[17:41:31] INFO - Flight #1095 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 9950
+[17:41:31] INFO - Generated number: 0
+[17:41:31] INFO - Flight #1125 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 3341
+[17:41:31] INFO - Generated number: 2
+[17:41:31] INFO - Flight #1155 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 1442
+[17:41:31] INFO - Generated number: 2
+[17:41:31] INFO - Flight #1185 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 9269
+[17:41:31] INFO - Generated number: 4
+[17:41:31] INFO - Flight #1215 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 1892
+[17:41:31] INFO - Generated number: 10
+[17:41:31] INFO - Flight #1245 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 3209
+[17:41:31] INFO - Generated number: 11
+[17:41:31] INFO - Flight #1275 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 5154
+[17:41:31] INFO - Generated number: 11
+[17:41:31] INFO - Flight #1305 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 3829
+[17:41:31] INFO - Generated number: 9
+[17:41:31] INFO - Flight #1335 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 5266
+[17:41:31] INFO - Generated number: 0
+[17:41:31] INFO - Flight #1365 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 8464
+[17:41:31] INFO - Generated number: 9
+[17:41:31] INFO - Flight #1395 added to array flights
+[17:41:31] INFO - Chars generated
+[17:41:31] INFO - Generated number: 284
+[17:41:31] INFO - Generated number: 7
+[17:41:31] INFO - Flight #1425 added to array flights
+[17:41:32] INFO - Flights recorded to file DB
+[17:41:32] INFO - File read
+[17:41:32] INFO - Array flights added to DB
+[17:41:32] INFO - App is run
+[17:41:32] INFO - Add action to Array
+[17:41:32] INFO - Get DB Flights
+[17:41:32] INFO - read DB
+[17:41:32] INFO - Get DB Booking
+[17:41:32] INFO - read DB
+[17:41:32] INFO - Run auth
+[17:41:39] INFO - Init variables
+[17:41:47] INFO - User register
+[17:41:47] INFO - Registration successfully
+[17:41:49] INFO - Init variables
+[17:41:52] INFO - User correct
+[17:41:52] INFO - User successfully login
+[17:41:52] INFO - Start app
+[17:41:52] INFO - Running start menu
+[17:41:52] INFO - Show commands start menu
+[17:41:55] INFO - get all flights
+[17:41:55] INFO - Show commands start menu
+[17:42:05] INFO - get all flights
+[17:42:05] INFO - Show commands start menu
+[17:42:37] INFO - get all flights
+[17:42:45] INFO - get all flights

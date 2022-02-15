@@ -2,6 +2,7 @@ package main.java.services;
 
 import main.java.DAO.AuthDAO;
 import main.java.authorization.User;
+import main.java.logger.Logs;
 
 import java.util.ArrayList;
 
@@ -14,6 +15,7 @@ public class UserService implements AuthDAO {
       if(ui.getUsername().equals(username)&&
         ui.getPassword().equals(passworld))
       {
+        Logs.log("User correct", "info");
         flag=true;
         break;
       }
@@ -23,6 +25,7 @@ public class UserService implements AuthDAO {
   }
 
   public void regist(User user) {
+    Logs.log("User register", "info");
     array.add(user);
   }
 }
