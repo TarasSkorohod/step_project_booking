@@ -11,7 +11,6 @@ import java.util.List;
 public class FlightService {
 
     private ActionDAO flightDao = new CollectionFlightDAO();
-    public ActionDAO getFlightDao() {return flightDao;}
     public List<Flight> getAllFlights() {
         Logs.log("get all flights", "info");
         return flightDao.getAllFlight();

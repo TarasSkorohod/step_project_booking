@@ -52,7 +52,7 @@ public class Flight implements Serializable {
                                 .ofPattern(TIME_FORMAT)) + '\'' +
                 ", destination='" + destination + '\'' +
                 ", passengersOnBoard=" + getPassengersOnBoard() +
-                ", maxNumSeats=" + maxNumSeats;
+                ", maxNumSeats=" + maxNumSeats + "}";
     }
 
     public Flight(String flightNumber, long departureDateTime, String destination, int maxNumSeats) {
