@@ -109,11 +109,11 @@ public class SetTestFlights {
 
     public static List<String> sortarray(){
         List<String> records = new ArrayList<>();
-        String pathCity = "./db/city.txt";
+        String pathCity = "./db/city.csv";
 
         try (BufferedReader br = new BufferedReader(
                 new InputStreamReader(
-                        new FileInputStream("./db/city.txt"), StandardCharsets.UTF_8)
+                        new FileInputStream("./db/city.csv"), StandardCharsets.UTF_8)
                 );
 
         ) {
