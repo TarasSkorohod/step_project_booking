@@ -29,47 +29,12 @@ public class FlightController {
     public void setPassengersCount(int countOfPassengers) {
         this.countOfPassengers = countOfPassengers;
     }
-
-    public List<Flight> getAllFlights() {
-        return flightService.getAllFlights();
-    }
-
-    public void displayAllFlights() {
-        flightService.displayAllFlights();
-    }
-
-    public void saveFlight(Flight flight) {
-        flightService.saveFlight(flight);
-    }
-
     public void saveDB(String path) {
         flightService.saveDB(path);
-
     }
-
     public void readDB(String path) {
         flightService.readDB(path);
     }
-
-    public void deleteFlight(int index) {
-        flightService.deleteFlight(index);
-    }
-
-    public void deleteFlight(Flight flight) {
-        flightService.deleteFlight(flight);
-    }
-
-    public int count() {
-
-        return flightService.count();
-
-    }
-
-    public Flight getFlightById(int index) {
-
-        return flightService.getFlightById(index);
-    }
-
     public void printAllSortedCurrent24Hours(String format) {
         flightService.getAllFlights()
                 .stream()
