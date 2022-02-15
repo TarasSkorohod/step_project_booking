@@ -25,59 +25,23 @@ public class FlightController {
     public int getPassengersCount() {
         return countOfPassengers;
     }
-
     public void setPassengersCount(int countOfPassengers) {
         this.countOfPassengers = countOfPassengers;
     }
-
-    public List<Flight> getAllFlights() {
-        return flightService.getAllFlights();
-    }
-
-    public void displayAllFlights() {
-        flightService.displayAllFlights();
-    }
-
-    public void saveFlight(Flight flight) {
-        flightService.saveFlight(flight);
-    }
-
     public void saveDB(String path) {
         flightService.saveDB(path);
-
     }
-
     public void readDB(String path) {
         flightService.readDB(path);
     }
-
-    public void deleteFlight(int index) {
-        flightService.deleteFlight(index);
-    }
-
-    public void deleteFlight(Flight flight) {
-        flightService.deleteFlight(flight);
-    }
-
-    public int count() {
-
-        return flightService.count();
-
-    }
-
-    public Flight getFlightById(int index) {
-
-        return flightService.getFlightById(index);
-    }
-
     public void printAllSortedCurrent24Hours(String format) {
+
         flightService.getAllFlights()
                 .stream()
                 .sorted(Comparator.comparingLong(Flight::getDepartureDateTime))
                 .forEach(f -> printFlight(f, format)
                 );
     }
-
     public void printFlight(Flight flight, String format) {
         String dateTime = String.format("%s %s", dateToStr(flight.getDepartureDateTime(), DATE_FORMAT), dateToStr(flight.getDepartureDateTime(), TIME_FORMAT));
         System.out.printf(format,
@@ -87,7 +51,6 @@ public class FlightController {
                 timeOfDayLongToString(flight.getDepartureDateTime())
         );
     }
-
     public Flight getByFlightNumber(String flightNumber) {
         Flight flight = null;
 
@@ -100,7 +63,6 @@ public class FlightController {
 
         return flight;
     }
-
     public int getMaxSeatNumber() {
 
         return flightService.getAllFlights()
@@ -109,7 +71,6 @@ public class FlightController {
                         .max().orElse(-1);
 
     }
-
     public List<Flight> getFlightsByCriteria(String destination, String date, int passengersNumber) {
 
         return flightService.getAllFlights()
@@ -122,13 +83,11 @@ public class FlightController {
                 .sorted(Comparator.comparingLong(Flight::getDepartureDateTime))
                 .collect(Collectors.toList());
     }
-
     public void displayFlightInfo(Flight flight) {
         showTitleForFlightsWithSeats();
         printFlightWithSeats(flight, FORMAT_FLIGHTS_SEATS, 1);
 
     }
-
     public void printFlightWithSeats(Flight flight, String format, int index) {
         if (flight != null && format.length() > 0)
             if (index > 1) {
@@ -142,9 +101,7 @@ public class FlightController {
                 timeOfDayLongToString(flight.getDepartureDateTime()),
                 flight.getMaxNumSeats() - flight.getPassengersOnBoard()
         );
-        System.out.println();
     }
-
     public List<Flight> searchFlightsForBooking() {
         String destination = showMessageWithAnswer(
                 "Введите место назначения:",
@@ -163,7 +120,6 @@ public class FlightController {
 
         return getFlightsByCriteria(destination, date, this.countOfPassengers);
     }
-
     public void printFlightsWithAction(List<Flight> flights, String format) {
         if (flights.size() > 0)
             flights.forEach(flight -> {
@@ -172,15 +128,12 @@ public class FlightController {
                 printFlightWithSeats(flight, format, index.addAndGet(1));
             });
     }
-
     public void printFlightsMenu(List<Flight> flights) {
 
+        System.out.print("     ");
         showTitleForFlightsWithSeats();
 
 
         printFlightsWithAction(flights, FORMAT_FLIGHTS_SEATS);
-
-        System.out.print("0. Вернуться в меню:");
-
     }
 }

@@ -16,7 +16,7 @@ class FlightServiceTest {
     List<Flight> allFlight = flightDao.getAllFlight();
 
     assertEquals(allFlight.toString(), "[]");
-    System.out.println("get all flights");
+    System.out.println("DONE: GET ALL FLIGHTS");
   }
 
   @Test
@@ -27,9 +27,9 @@ class FlightServiceTest {
     for (int i = 0; i < flightDao.getAllFlight().size(); i++) {
       Flight item = flightDao.getAllFlight().get(i);
 
-      assertEquals(item, "booking.Flight{flightNumber='1', departureDate ='01/01/1970', departureTime ='03:03', destination='Dnipro', passengersOnBoard=0, maxNumSeats=100}");
+      assertEquals(item.toString(), "booking.Flight{flightNumber='1', departureDate ='01/01/1970', departureTime ='03:03', destination='Dnipro', passengersOnBoard=0, maxNumSeats=100}");
     }
-
+    System.out.println("DONE: DISPLAY ALL FLIGHTS");
   }
 
   @Test
@@ -37,18 +37,24 @@ class FlightServiceTest {
     ActionDAO flightDao = new CollectionFlightDAO();
     Flight flight = new Flight("1", 232323L, "Dnipro", 100);
     flightDao.saveFlight(flight);
+
+    System.out.println("DONE: SAVE FLIGHT");
   }
 
   @Test
   void saveDB() {
     ActionDAO flightDao = new CollectionFlightDAO();
     flightDao.saveDB("./db/flights.txt");
+
+    System.out.println("DONE: SAVE DB");
   }
 
   @Test
   void readDB() {
     ActionDAO flightDao = new CollectionFlightDAO();
     flightDao.readDB("./db/flights.txt");
+
+    System.out.println("DONE: READ DB");
   }
 
   @Test
@@ -61,6 +67,8 @@ class FlightServiceTest {
     assertEquals(flightDao.getAllFlight().size(), 1);
     flightDao.remove(0);
     assertEquals(flightDao.getAllFlight().size(), 0);
+
+    System.out.println("DONE: DELETE FLIGHT BY INDEX");
   }
 
   @Test
@@ -73,6 +81,8 @@ class FlightServiceTest {
     assertEquals(flightDao.getAllFlight().size(), 1);
     flightDao.remove(flight);
     assertEquals(flightDao.getAllFlight().size(), 0);
+
+    System.out.println("DONE: DELETE FLIGHT BY OBJECT");
   }
 
   @Test
@@ -83,6 +93,8 @@ class FlightServiceTest {
     flightDao.saveFlight(flight);
 
     assertEquals(flightDao.getAllFlight().size(), 1);
+
+    System.out.println("DONE: SHOW COUNT");
   }
 
   @Test
@@ -97,5 +109,7 @@ class FlightServiceTest {
       flightDao.getAllFlight().get(index);
       assertEquals(flightDao.getAllFlight().get(index).toString(), "booking.Flight{flightNumber='1', departureDate ='01/01/1970', departureTime ='03:03', destination='Dnipro', passengersOnBoard=0, maxNumSeats=100}");
     }
+
+    System.out.println("DONE: GET FLIGHT BY ID");
   }
 }

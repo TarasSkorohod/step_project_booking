@@ -25,9 +25,11 @@ public class ActionShowFlights extends Action implements MenuDAO {
 
     @Override
     public void doAction() {
+        System.out.println("==============================================================================");
         System.out.printf("%s\n", "Рейсы из аэропорта \"Жуляны\":" + printNow());
+        System.out.println("==============================================================================");
         showTitleForFlights();
         this.appData.getFlight().printAllSortedCurrent24Hours(FORMAT_FLIGHTS);
-
+        System.out.println("==============================================================================");
     }
 }

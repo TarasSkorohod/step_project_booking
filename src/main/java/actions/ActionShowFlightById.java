@@ -26,15 +26,20 @@ public class ActionShowFlightById extends Action implements MenuDAO {
     @Override
     public void doAction() {
 
-        String flightNumber = showMessageWithAnswer("Введите номер рейса [пример: BZ4911]:").toUpperCase();
+        String flightNumber = showMessageWithAnswer("" +
+          "==============================================================================\n" +
+          "Введите номер рейса [пример: BZ4911]:").toUpperCase();
 
 
         Flight flight = this.appData.getFlight().getByFlightNumber(flightNumber);
+        System.out.println("==============================================================================\n");
 
         if (flight != null) {
             appData.getFlight().displayFlightInfo(flight);
+            System.out.println("==============================================================================");
         } else {
             System.out.println("Извините, но данного рейса нету в списке!");
+            System.out.println("==============================================================================");
         }
     }
 }

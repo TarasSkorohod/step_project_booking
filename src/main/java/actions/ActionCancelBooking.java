@@ -28,7 +28,9 @@ public class ActionCancelBooking extends Action implements MenuDAO {
         boolean cancel = true;
 
         if (appData.getBooking().isEmptyBookings()) {
+            System.out.println("=====================================================================================================");
             System.out.println("Вы пока не бронировали билеты!");
+            System.out.println("=====================================================================================================");
             cancel = false;
         }
 

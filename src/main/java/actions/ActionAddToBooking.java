@@ -28,21 +28,24 @@ public class ActionAddToBooking extends Action implements MenuDAO {
     @Override
     public void doAction() {
 
+        System.out.println("=====================================================================================================");
         List<Flight> searchResult = appData.getFlight().searchFlightsForBooking();
+        System.out.println("=====================================================================================================");
 
         if (searchResult.size() != 0) {
             boolean controlSearchAndBooking = true;
 
             while (controlSearchAndBooking) {
                 appData.getFlight().printFlightsMenu(searchResult);
+                System.out.println("=====================================================================================================");
 
-                System.out.println("Введите число от 1 до " + searchResult.size() + " для выбора рейса или введите 0, чтобы вернуться в меню:");
+                System.out.print("Введите число от 1 до " + searchResult.size() + " для выбора рейса или введите 0, чтобы вернуться в меню: ");
 
                 int choiceSearchAndBooking;
                 try {
                     Scanner input = new Scanner(System.in);
                     choiceSearchAndBooking = input.nextInt();
-
+                    System.out.println("=====================================================================================================");
                 } catch (InputMismatchException e) {
                     choiceSearchAndBooking = -1;
                 }
@@ -64,6 +67,7 @@ public class ActionAddToBooking extends Action implements MenuDAO {
         }
         else{
             System.out.println("По данным критериям рейс не найдет, попробуйте ещё раз...");
+            System.out.println("==============================================================================\n");
         }
     }
 

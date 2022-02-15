@@ -120,7 +120,9 @@ public class BookingController {
                     "Вы ввели запрещенные символы или цифры!");
             result.add(new Passenger(firstname, lastname));
         }
+        System.out.println("=====================================================================================================");
         return result;
+
     }
 
     public void makingBooking(Flight flight, int passengersNumberForBooking) {
@@ -168,7 +170,7 @@ public class BookingController {
     }
 
     public void printCancelBookingMenu(List<Booking> bookings) {
-
+        System.out.print("   ");
         showTitleFroBookingList();
 
         printAllBookings(bookings, FORMAT_BOOKING);
